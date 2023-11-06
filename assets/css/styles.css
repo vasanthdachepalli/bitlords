@@ -1,0 +1,49 @@
+* {
+    background-color: rgb(192, 183, 183);
+}
+.head {
+    /* background-color: #f4f4f4; */
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+}
+.body{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    
+}
+.body-left{
+    
+     width: 50%;
+   
+     display: table-cell;
+}
+.body-right{
+    width: 50%;
+  display: table-cell;
+}
+#left-content{
+    padding-left: 200px;
+}
+#right-content{
+    padding-left: 200px;
+}
+.form{
+  padding-left: 550px;
+}
+#sumbit-button{
+    padding-top: 20px;
+    padding-left:100px ;
+}
+.category{
+    padding-top: 10px;
+}
+#ul-of-today-Transctions{
+    padding-top: 0px;
+    padding-left: 700px;
+}
+#name-today-Transctions{
+    padding-top: 10pxf;
+    padding-left: 600px; 
+}

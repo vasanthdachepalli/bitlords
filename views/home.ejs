@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bit Lords</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="head">
+        <h1>Heading</h1>
+    </div>
+    <div class="body">
+        <div class="body-left">
+            <h2 id ="left-content">Total Credit Balance: <%= salary %></h2>
+            <!-- <p id ="left-content">Left content</p> -->
+        </div>
+        <div class="body-right" >
+            <h2 id="right-content">Savings target: <%= saving %> </h2>
+            <!-- <p id ="right-content">Right content</p> -->
+        </div>
+    </div>
+    <div >
+        <div class="form">
+        <form method ="post" action="/first/add">
+            <h1>Add A Transction</h1>
+            <label for="Amount">Amount</label>
+            <input type="text" name="amount"/>
+            <div class="category">
+             <label for="category">Select a Programming category:</label>
+             <select name="category" id="category">
+               <option value="Shopping">Shopping</option>
+               <option value="Enternment">Enternment</option>
+               <option value="Medical">Medical</option>
+               <option value="Food" selected>Food</option>
+               <option value="Savings" selected>Savings</option>
+              </select> 
+            </div>
+            <div id="sumbit-button">
+                <button>Submit</button>
+              </div>
+          </form>
+         
+        </div>
+    </div>
+    <div class="today-Transctions">
+        <h1 id="name-today-Transctions">Today's Transctions</h1>
+        <ul id="ul-of-today-Transctions">
+            <% item.forEach((i)=>{ %>
+            <li> ammout : <%= i.ammout %>  category : <%=i.category %></li>
+           <% }) %>
+          </ul>
+    </div>
+
+    
+
+</body>
+</html>
