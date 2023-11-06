@@ -2,8 +2,9 @@ const User = require('../models/user');
 require('dotenv').config();
 const express = require("express");
 
-
+const passport = require('passport')
 const userdata = require('../models/userdata');
+
 
 const app = express.Router();
 

@@ -23,4 +23,29 @@ salarydata.findOne({tag:req.user.username})
     console.log(err);
    })
 })
+
+const date = new Date();
+Router.post("/add",function(req,res){
+    salarydata.findOne({tag:req.user.username})
+    .then(doc =>{
+        console.log(doc.balance- req.body.amount)
+        salarydata.findOneAndUpdate({tag:req.user.username},{balance:(doc.balance- req.body.amount)})
+        .then(()=>{
+            console.log("updated succesfully");
+        })
+        .catch(err =>{
+            console.log(err);
+           })
+    })
+    .catch(err =>{
+        console.log(err);
+       })
+    transtiondata.create({
+        tag:req.user.username,
+        ammount:req.body.amount,
+        category:req.body.category,
+        date: date.getDate()
+    })
+    res.redirect("/home");
+})
 module.exports = Router;

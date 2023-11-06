@@ -22,10 +22,10 @@
     </div>
     <div >
         <div class="form">
-        <form method ="post" action="/first/add">
+        <form method ="post" action="/home/add">
             <h1>Add A Transction</h1>
             <label for="Amount">Amount</label>
-            <input type="text" name="amount"/>
+            <input type="number" name="amount"/>
             <div class="category">
              <label for="category">Select a Programming category:</label>
              <select name="category" id="category">
@@ -47,7 +47,7 @@
         <h1 id="name-today-Transctions">Today's Transctions</h1>
         <ul id="ul-of-today-Transctions">
             <% item.forEach((i)=>{ %>
-            <li> ammout : <%= i.ammout %>  category : <%=i.category %></li>
+            <li> ammout : <%= i.ammount %>  category : <%=i.category %></li>
            <% }) %>
           </ul>
     </div>
