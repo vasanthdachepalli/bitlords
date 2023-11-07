@@ -48,8 +48,7 @@ app.post("/register", function(req, res){
     } else {
       console.log("check 1");
       passport.authenticate("local")(req, res, function(){
-        let b = require("./delete")
-        b();
+       
         console.log("check 2");
         res.redirect("/home");
     
