@@ -13,12 +13,8 @@ values1.push(doc.Entertainment);
 values1.push(doc.Medical);
 values1.push(doc.Food);
 values1.push(doc.others);
-console.log("check1");
-console.log("check2");
-const data1 = {values:values1};
 
-console.log(data1);
-console.log("i am here now")
+const data1 = {values:values1};
 res.json(data1);
 
 })
