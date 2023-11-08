@@ -1,4 +1,5 @@
 const express = require("express");
+const user = require("../models/catoregywisedaily");
 const Router = express.Router();
 const transtiondata = require('../models/transctiondaily');
 const salarydata = require('../models/userdata');
@@ -26,6 +27,43 @@ salarydata.findOne({tag:req.user.username})
 
 const date = new Date();
 Router.post("/add",function(req,res){
+  user.countDocuments({tag:req.user.username,date:date.getDate()})
+  .then(count=>{
+    if(count === 0){
+        user.create(
+            {
+                tag:req.user.username,
+    Shopping:0,
+    Entertainment:0,
+    Medical:0,
+    Food:0,
+    others:0,
+    date: date.getDate(),
+    monthnumber:date.getMonth(),
+    total:0
+            }
+        )
+    }
+  })
+  .catch(err =>{
+    console.log(err);
+   })
+
+   user.findOne({tag:req.user.username,date:date.getDate()})
+   .then(doc =>{
+    category = req.user.category
+    user.findOneAndUpdate({tag:req.user.username,date:date.getDate()},{total:(doc.total + req.body.amount),[category]:(doc[category] + req.body.amount)})
+    .then(()=>{
+        console.log("updated succesfully");
+    })
+    .catch(err =>{
+        console.log(err);
+       })
+
+   })
+   .catch(err =>{
+    console.log(err);
+   })
     salarydata.findOne({tag:req.user.username})
     .then(doc =>{
         console.log(doc.balance- req.body.amount)

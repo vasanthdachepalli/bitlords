@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bit Lords</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .chart-container {
+            width: 500px;
+            height: 500px;
+           position: relative;
+           left: 800px;
+        }
+    </style>
 </head>
 <body>
     <div class="head">
@@ -30,10 +38,10 @@
              <label for="category">Select a Programming category:</label>
              <select name="category" id="category">
                <option value="Shopping">Shopping</option>
-               <option value="Enternment">Enternment</option>
+               <option value="Entertainment">Enternment</option>
                <option value="Medical">Medical</option>
                <option value="Food" selected>Food</option>
-               <option value="Savings" selected>Savings</option>
+               <option value="others" selected>Savings</option>
               </select> 
             </div>
             <div id="sumbit-button">
@@ -43,6 +51,12 @@
          
         </div>
     </div>
+  
+    <div class="chart-container">
+        <div>
+            <canvas id="myPieChart" width="500" height="500" style="display: block; box-sizing: border-box; height: 500px; width: 500px;"></canvas>
+            </div>
+        </div>
     <div class="today-Transctions">
         <h1 id="name-today-Transctions">Today's Transctions</h1>
         <ul id="ul-of-today-Transctions">
@@ -52,7 +66,8 @@
           </ul>
     </div>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/home.js"></script>
 
 </body>
 </html>
