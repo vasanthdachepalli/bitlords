@@ -30,6 +30,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
+
 app.use("/home",require('./routes/home'));
 app.use('/loginpage', require('./routes/user'));
 //app.use('loginpage/login',require('./routes/user'));
