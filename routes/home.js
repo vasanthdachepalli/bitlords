@@ -4,29 +4,7 @@ const Router = express.Router();
 const transtiondata = require('../models/transctiondaily');
 const salarydata = require('../models/userdata');
 const dategenerater = require('../api/dategenerater');
-Router.get("/",require('../controllers/deleter'),require('../controllers/healperForhomePage'),function(res,req){
-    user.countDocuments({tag:req.user.username,date:dategenerater()})
-    .then(count=>{
-      if(count == 0){
-          user.create(
-              {
-                  tag:req.user.username,
-      Shopping:0,
-      Entertainment:0,
-      Medical:0,
-      Food:0,
-      others:0,
-      date: dategenerater(),
-      monthnumber:date.getMonth(),
-      total:0
-              }
-          )
-          console.log("check 6")
-      }
-    })
-    .catch(err =>{
-      console.log(err);
-     })
+Router.get("/",require('../controllers/deleter'),require('../controllers/healperForhomePage'),function(req,res){
 
 
 salarydata.findOne({tag:req.user.username})
