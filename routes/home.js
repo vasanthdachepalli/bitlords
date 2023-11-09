@@ -3,8 +3,9 @@ const user = require("../models/catoregywisedaily");
 const Router = express.Router();
 const transtiondata = require('../models/transctiondaily');
 const salarydata = require('../models/userdata');
+const dategenerater = require('../api/dategenerater');
 Router.get("/",function(req,res){
-    user.countDocuments({tag:req.user.username,date:date.getDate()})
+    user.countDocuments({tag:req.user.username,date:dategenerater()})
     .then(count=>{
       if(count == 0){
           user.create(
@@ -15,7 +16,7 @@ Router.get("/",function(req,res){
       Medical:0,
       Food:0,
       others:0,
-      date: date.getDate(),
+      date: dategenerater(),
       monthnumber:date.getMonth(),
       total:0
               }
@@ -52,7 +53,7 @@ const date = new Date();
 Router.post("/add",function(req,res){
   
 
-   user.findOne({tag:req.user.username,date:date.getDate()})
+   user.findOne({tag:req.user.username,date:date.dategenerater()})
    .then(doc =>{
    
     category = req.body.category;
@@ -60,7 +61,7 @@ Router.post("/add",function(req,res){
     const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);
     const a2 = parseInt(doc[category],10)+ parseInt(req.body.amount,10);
     console.log(a2);
-    user.findOneAndUpdate({tag:req.user.username,date:date.getDate()},{total:a1,[category]:a2})
+    user.findOneAndUpdate({tag:req.user.username,date:date.dategenerater()},{total:a1,[category]:a2})
     .then(()=>{
         console.log("updated ");
     })
@@ -90,7 +91,7 @@ Router.post("/add",function(req,res){
         tag:req.user.username,
         ammount:req.body.amount,
         category:req.body.category,
-        date: date.getDate()
+        date: dategenerater()
     })
     res.redirect("/home");
 })
