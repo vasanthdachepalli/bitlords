@@ -15,7 +15,7 @@ module.exports =function getMonthName(monthNumber) {
     ];
 
     if (monthNumber >= 0 && monthNumber <= 12) {
-        return months[monthNumber];
+        return months[monthNumber ];
     } else {
         return 'Invalid Month';
     }

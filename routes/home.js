@@ -28,29 +28,9 @@ salarydata.findOne({tag:req.user.username})
 })
 
 const date = new Date();
-Router.post("/add",function(req,res){
+Router.post("/add",require('../controllers/updaterForDMW'),function(req,res){
   
 
-   user.findOne({tag:req.user.username,date:dategenerater()})
-   .then(doc =>{
-   
-    category = req.body.category;
-    
-    const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);
-    const a2 = parseInt(doc[category],10)+ parseInt(req.body.amount,10);
-    console.log(a2);
-    user.findOneAndUpdate({tag:req.user.username,date:dategenerater()},{total:a1,[category]:a2})
-    .then(()=>{
-        console.log("updated ");
-    })
-    .catch(err =>{
-        console.log(err);
-       })
-
-   })
-   .catch(err =>{
-    console.log(err);
-   })
     salarydata.findOne({tag:req.user.username})
     .then(doc =>{
        
