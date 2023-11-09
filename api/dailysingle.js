@@ -1,12 +1,12 @@
 const data = require('../models/catoregywisedaily');
 const express = require('express');
 const app = express.Router();
-const date = new Date();
+const date = require('./dategenerater');
 
 app.get('/dailysingle',function(req,res){
 const values1 =[];
 
-data.findOne({tag:req.user.username,date:date.getDate()})
+data.findOne({tag:req.user.username,date:date()})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
