@@ -4,7 +4,7 @@ const Router = express.Router();
 const transtiondata = require('../models/transctiondaily');
 const salarydata = require('../models/userdata');
 const dategenerater = require('../api/dategenerater');
-Router.get("/",require('../controllers/deleter'),function(req,res){
+Router.get("/",require('../controllers/deleter'),require('../controllers/healperForhomePage'),function(res,req){
     user.countDocuments({tag:req.user.username,date:dategenerater()})
     .then(count=>{
       if(count == 0){
