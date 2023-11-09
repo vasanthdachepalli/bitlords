@@ -13,10 +13,10 @@ module.exports = function(req,res,next){
      
      const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);
      const a2 = parseInt(doc[category],10)+ parseInt(req.body.amount,10);
-     console.log(a2);
+  
      user.findOneAndUpdate({tag:req.user.username,date:dategenerater()},{total:a1,[category]:a2})
      .then(()=>{
-         console.log("updated ");
+         console.log("");
      })
      .catch(err =>{
          console.log(err);
@@ -36,10 +36,10 @@ module.exports = function(req,res,next){
      
      const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);
      const a2 = parseInt(doc[category],10)+ parseInt(req.body.amount,10);
-     console.log(a2);
+    
      monthly.findOneAndUpdate({tag:req.user.username,month:monthgenerator(date.getMonth())},{total:a1,[category]:a2})
      .then(()=>{
-         console.log("updated 1");
+         console.log("");
      })
      .catch(err =>{
          console.log(err);
@@ -53,13 +53,14 @@ module.exports = function(req,res,next){
 
  yearly.findOne({tag:req.user.username,year:date.getFullYear()})
    .then(doc =>{
-   
+    console.log(doc);
     category = req.body.category;
     
     const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);
     const a2 = parseInt(doc[category],10)+ parseInt(req.body.amount,10);
     console.log(a2);
-    user.findOneAndUpdate({tag:req.user.username,year:date.getFullYear()},{total:a1,[category]:a2})
+    console.log(doc[category]);
+    yearly.findOneAndUpdate({tag:req.user.username,year:date.getFullYear()},{total:a1,[category]:a2})
     .then(()=>{
         console.log("updated 2");
     })

@@ -10,7 +10,7 @@
             width: 500px;
             height: 500px;
            position: relative;
-           left: 800px;
+        
         }
     </style>
 </head>
@@ -53,9 +53,15 @@
     </div>
   
     <div class="chart-container">
-        <div>
-            <canvas id="myPieChart" width="500" height="500" style="display: block; box-sizing: border-box; height: 500px; width: 500px;"></canvas>
-            </div>
+        <span>
+            <canvas id="myPieChart"  style="display: block; box-sizing: border-box; height: 500px; width: 500px;"></canvas>
+        </span>
+            <span>
+                <canvas id ="myPieChart_month"></canvas>
+            </span>
+            <span>
+                <canvas id ="myPieChart_year"></canvas>
+            </span>
         </div>
     <div class="today-Transctions">
         <h1 id="name-today-Transctions">Today's Transctions</h1>
@@ -68,6 +74,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/month_home.js"></script>
+    <script src="js/year_home.js"></script>
 
 </body>
 </html>

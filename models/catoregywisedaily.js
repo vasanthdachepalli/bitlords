@@ -7,7 +7,7 @@ const catoregywisedaikyschema = new mongoose.Schema({
     Food:Number,
     others:Number,
     date:String,
-    monthnumber:Number,
+    monthnumber:String,
     total:Number
 })
 const model = new mongoose.model('catogerywisedaily',catoregywisedaikyschema);

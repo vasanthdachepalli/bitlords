@@ -11,7 +11,7 @@ transtion_daily.deleteMany({date:{$ne : date()}})
     console.log(err);
 })
 
-catogerywisedaily.deleteMany({monthnumber:{$ne : dat1.getMonth}})
+catogerywisedaily.deleteMany({monthnumber:{$ne : dat1.getMonth()}})
 .then(()=>{
     console.log('deleted successfully');
 })
