@@ -120,19 +120,18 @@
                 <option value="Shopping">Shopping</option>
                 <option value="Entertainment">Enternment</option>
                 <option value="Medical">Medical</option>
-                <option value="Food" selected>Food</option>
+                <option value="Food" >Food</option>
                 <option value="others" selected>others</option>
+                <option value="total">totals</option>
                </select> 
           </div>
           <div class="header-right">
-              <button class="button" type="button">Fetch</button>
+              <button class="button" onclick="daily1()"  type="button">Fetch</button>
           </div>
       </div>
       
       <div class="card-body">
-          <h5>Special title treatment</h5>
-          <p>With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Go somewhere</a>
+         <canvas id="myPieChart_daily1"></canvas>
       </div>
   </div>
 </section>
@@ -147,17 +146,16 @@
               <option value="Medical">Medical</option>
               <option value="Food" selected>Food</option>
               <option value="others" selected>others</option>
+              <option value="total">totals</option>
              </select> 
           </div>
           <div class="header-right">
-              <button class="button" type="button">Fetch</button>
+              <button class="button" onclick="month1()" type="button">Fetch</button>
           </div>
       </div>
       
       <div class="card-body">
-          <h5>Special title treatment</h5>
-          <p>With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Go somewhere</a>
+         <canvas id="myPieChart_month1"></canvas>
       </div>
   </div>
 </section>
@@ -172,17 +170,16 @@
               <option value="Medical">Medical</option>
               <option value="Food" selected>Food</option>
               <option value="others" selected>others</option>
+              <option value="total">totals</option>
              </select> 
           </div>
           <div class="header-right">
-              <button class="button" type="button">Fetch</button>
+              <button class="button" onclick="year1()"  type="button">Fetch</button>
           </div>
       </div>
       
       <div class="card-body">
-          <h5>Special title treatment</h5>
-          <p>With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Go somewhere</a>
+          <canvas id="myPieChart_year1"></canvas>
       </div>
   </div>
 </section>
@@ -193,6 +190,7 @@
    <script src="js/visualizer_daily.js"></script>
     <script src="js/visualizer_month.js"></script>
     <script src="js/visualizer_year.js"></script>
+    <script src="js/visualizer_daily_totals.js"></script>
 </body>
 
 </html>

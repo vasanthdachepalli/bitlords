@@ -3,6 +3,7 @@ const express = require('express');
 const Router = express.Router();
 const month = require('../models/cateregywisemonthly');
 const year = require('../models/cateregywiseyearly');
+Router.use("/api",require("../api/visual_api"))
 Router.get("/",function(req,res){
 daily.find({tag:req.user.username})
 .then(doc =>{
@@ -17,10 +18,19 @@ res.render('visualizer',{
 })
 
 })
+.catch((err)=>{
+    console.log(err)
+});
 
 })
+.catch((err)=>{
+    console.log(err)
+});
    
 })
+.catch((err)=>{
+    console.log(err)
+});
 
 })
 module.exports = Router;
