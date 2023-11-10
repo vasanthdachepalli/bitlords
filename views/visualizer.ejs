@@ -25,7 +25,7 @@
             <div class="card-header">
                 <div class="header-left">
                     <label for="date">Date</label>
-                    <select name="date" id="date">
+                    <select name="date" id="daily_date">
                         <% daily.forEach((i) =>{  %>
                                <option value= <%=i.date %> > <%= i.date %> </option>
                             <% }) %>
@@ -33,95 +33,96 @@
                 </div>
                 <div class="header-center">
                     <label for="chart">ChartType</label>
-                    <select name="chart" id="chart">
+                    <select name="chart" id="daily_type">
                         <option value="pie">Pie Chart</option>
                         <option value="bar">Bar chart</option>
                     </select>
                 </div>
                 <div class="header-right">
-                    <button class="button" type="button">Fetch</button>
+                    <button class="button" onclick="daily()" type="button">Fetch</button>
                 </div>
             </div>
             
             <div class="card-body">
-                <h5>Special title treatment</h5>
-                <p>With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#">Go somewhere</a>
+          <canvas id="myPieChart_daily"></canvas>
             </div>
         </div>
     </section>
 
 
-    <!--
+   
     <section class="second-card">
       <div class="card">
           <div class="card-header">
               <div class="header-left">
                   <label for="date">Month</label>
-                  <select name="date" id="date">
-                      <option value="date">5</option>
-                      <option value="date">6</option>
+                  <select name="date" id="date_month">
+                    <% month.forEach((i)=>{ %>
+                      <option value=<%=i.month %>> <%= i.month%></option>
+                     <% }) %>
                   </select>
               </div>
               <div class="header-center">
                   <label for="chart">ChartType</label>
-                  <select name="chart" id="chart">
-                      <option value="pie chart">Pie Chart</option>
-                      <option value="Bar Chart">Bar chart</option>
+                  <select name="chart" id="chart_month">
+                      <option value="pie">Pie Chart</option>
+                      <option value="bar">Bar chart</option>
                   </select>
               </div>
               <div class="header-right">
-                  <button class="button" type="button">Fetch</button>
+                  <button class="button" onclick="monthly()">Fetch</button>
               </div>
           </div>
           
           <div class="card-body">
-              <h5>Special title treatment</h5>
-              <p>With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Go somewhere</a>
+             <canvas id="myPieChart_month"></canvas>
           </div>
       </div>
   </section>
+
+  
   <section class="third-card">
     <div class="card">
         <div class="card-header">
             <div class="header-left">
                 <label for="date">year</label>
-                <select name="date" id="date">
-                    <option value="date">2005</option>
-                    <option value="date">2006</option>
+                <select name="date" id="date_year">
+                    <% year.forEach((i)=>{ %>
+                        <option value=<%=i.year %>> <%= i.year%></option>
+                       <% }) %>
                 </select>
             </div>
             <div class="header-center">
                 <label for="chart">ChartType</label>
-                <select name="chart" id="chart">
-                    <option value="pie chart">Pie Chart</option>
-                    <option value="Bar Chart">Bar chart</option>
+                <select name="chart" id="chart_year">
+                    <option value="pie">Pie Chart</option>
+                    <option value="bar">Bar chart</option>
                 </select>
             </div>
             <div class="header-right">
-                <button class="button" type="button">Fetch</button>
+                <button class="button" onclick="yearly()"  type="button">Fetch</button>
             </div>
         </div>
         
         <div class="card-body">
-            <h5>Special title treatment</h5>
-            <p>With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#">Go somewhere</a>
+            <canvas id="myPieChart_year"></canvas>
         </div>
     </div>
 </section>
--->
-<!--
+
+
 <section class="first-card">
   <div class="card">
       <div class="card-header">
           <div class="header-left">
-              <label for="date">Date</label>
-              <select name="date" id="date">
-                  <option value="date">25</option>
-                  <option value="date">26</option>
-              </select>
+              <label for="category"> category:</label>
+              <select name="category" id="category_daily">
+                <option value="Shopping">Shopping</option>
+                <option value="Entertainment">Enternment</option>
+                <option value="Medical">Medical</option>
+                <option value="Food" selected>Food</option>
+                <option value="others" selected>others</option>
+               </select> 
           </div>
           <div class="header-right">
               <button class="button" type="button">Fetch</button>
@@ -139,11 +140,14 @@
   <div class="card">
       <div class="card-header">
           <div class="header-left">
-              <label for="date">Month</label>
-              <select name="date" id="date">
-                  <option value="date">5</option>
-                  <option value="date">6</option>
-              </select>
+            <label for="category"> category:</label>
+            <select name="category" id="category_month">
+              <option value="Shopping">Shopping</option>
+              <option value="Entertainment">Enternment</option>
+              <option value="Medical">Medical</option>
+              <option value="Food" selected>Food</option>
+              <option value="others" selected>others</option>
+             </select> 
           </div>
           <div class="header-right">
               <button class="button" type="button">Fetch</button>
@@ -161,11 +165,14 @@
   <div class="card">
       <div class="card-header">
           <div class="header-left">
-              <label for="date">year</label>
-              <select name="date" id="date">
-                  <option value="date">2005</option>
-                  <option value="date">2006</option>
-              </select>
+            <label for="category"> category:</label>
+            <select name="category" id="category_year">
+              <option value="Shopping">Shopping</option>
+              <option value="Entertainment">Enternment</option>
+              <option value="Medical">Medical</option>
+              <option value="Food" selected>Food</option>
+              <option value="others" selected>others</option>
+             </select> 
           </div>
           <div class="header-right">
               <button class="button" type="button">Fetch</button>
@@ -180,8 +187,12 @@
   </div>
 </section>
 
-   Other sections go here -->
+   
 
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="js/visualizer_daily.js"></script>
+    <script src="js/visualizer_month.js"></script>
+    <script src="js/visualizer_year.js"></script>
 </body>
 
 </html>
