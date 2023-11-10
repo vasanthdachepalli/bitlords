@@ -1,5 +1,4 @@
-
-fetch('api/dailysingle')
+fetch('api/month')
 .then(response => response.json())
      .then((data) => {
          console.log(data)
@@ -8,7 +7,7 @@ fetch('api/dailysingle')
          const values = data.values; // An array of corresponding values
      
          // Create the pie chart
-         var ctx = document.getElementById('myPieChart').getContext('2d');
+         var ctx = document.getElementById('myPieChart_month').getContext('2d');
          var myPieChart = new Chart(ctx, {
              type: 'pie',
              data: {
