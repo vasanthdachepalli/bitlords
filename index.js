@@ -43,9 +43,7 @@ app.get("/register", function(req, res){
 app.get("/",function(req,res){
     res.render("signin");
 })
-app.get("/pagetwo",function(req,res){
-  res.render("visualer");
-})
+app.use("/visualizer",require('./routes/visualizer'))
 app.listen(3000, function() {
     console.log("Server started on port 3000.");
   });

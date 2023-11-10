@@ -1,4 +1,4 @@
-const date = new Date()
+
 const month = date.getMonth();
 
 fetch('api/month/?month='+ month)

@@ -5,7 +5,7 @@ const dat1 = new Date();
 module.exports = function(req,res,next){
 transtion_daily.deleteMany({date:{$ne : date()}})
 .then(()=>{
-    console.log('deleted successfully');
+    console.log('');
 })
 .catch((err)=>{
     console.log(err);
@@ -13,7 +13,7 @@ transtion_daily.deleteMany({date:{$ne : date()}})
 
 catogerywisedaily.deleteMany({monthnumber:{$ne : dat1.getMonth()}})
 .then(()=>{
-    console.log('deleted successfully');
+    console.log('');
 })
 .catch((err)=>{
     console.log(err);

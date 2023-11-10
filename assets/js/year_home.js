@@ -1,4 +1,4 @@
-const date = new Date();
+
 const year = date.getFullYear()
 
 fetch('api/year/?year='+year)

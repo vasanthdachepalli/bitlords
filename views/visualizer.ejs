@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Charts</title>
+    <link rel="stylesheet" href="css/visualizer.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="#">Bit Lords</a>
+        </div>
+        <nav>
+            <a href="/home">Home</a>
+            <a class="nav-second" href="/home">Categories</a>
+            <a class="nav-third" href="/visualizer">Charts</a>
+        </nav>
+    </header>
+
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Date</label>
+                    <select name="date" id="date">
+                        <% daily.forEach((i) =>{  %>
+                               <option value= <%=i.date %> > <%= i.date %> </option>
+                            <% }) %>
+                    </select>
+                </div>
+                <div class="header-center">
+                    <label for="chart">ChartType</label>
+                    <select name="chart" id="chart">
+                        <option value="pie">Pie Chart</option>
+                        <option value="bar">Bar chart</option>
+                    </select>
+                </div>
+                <div class="header-right">
+                    <button class="button" type="button">Fetch</button>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <h5>Special title treatment</h5>
+                <p>With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#">Go somewhere</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!--
+    <section class="second-card">
+      <div class="card">
+          <div class="card-header">
+              <div class="header-left">
+                  <label for="date">Month</label>
+                  <select name="date" id="date">
+                      <option value="date">5</option>
+                      <option value="date">6</option>
+                  </select>
+              </div>
+              <div class="header-center">
+                  <label for="chart">ChartType</label>
+                  <select name="chart" id="chart">
+                      <option value="pie chart">Pie Chart</option>
+                      <option value="Bar Chart">Bar chart</option>
+                  </select>
+              </div>
+              <div class="header-right">
+                  <button class="button" type="button">Fetch</button>
+              </div>
+          </div>
+          
+          <div class="card-body">
+              <h5>Special title treatment</h5>
+              <p>With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Go somewhere</a>
+          </div>
+      </div>
+  </section>
+  <section class="third-card">
+    <div class="card">
+        <div class="card-header">
+            <div class="header-left">
+                <label for="date">year</label>
+                <select name="date" id="date">
+                    <option value="date">2005</option>
+                    <option value="date">2006</option>
+                </select>
+            </div>
+            <div class="header-center">
+                <label for="chart">ChartType</label>
+                <select name="chart" id="chart">
+                    <option value="pie chart">Pie Chart</option>
+                    <option value="Bar Chart">Bar chart</option>
+                </select>
+            </div>
+            <div class="header-right">
+                <button class="button" type="button">Fetch</button>
+            </div>
+        </div>
+        
+        <div class="card-body">
+            <h5>Special title treatment</h5>
+            <p>With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#">Go somewhere</a>
+        </div>
+    </div>
+</section>
+-->
+<!--
+<section class="first-card">
+  <div class="card">
+      <div class="card-header">
+          <div class="header-left">
+              <label for="date">Date</label>
+              <select name="date" id="date">
+                  <option value="date">25</option>
+                  <option value="date">26</option>
+              </select>
+          </div>
+          <div class="header-right">
+              <button class="button" type="button">Fetch</button>
+          </div>
+      </div>
+      
+      <div class="card-body">
+          <h5>Special title treatment</h5>
+          <p>With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#">Go somewhere</a>
+      </div>
+  </div>
+</section>
+<section class="second-card">
+  <div class="card">
+      <div class="card-header">
+          <div class="header-left">
+              <label for="date">Month</label>
+              <select name="date" id="date">
+                  <option value="date">5</option>
+                  <option value="date">6</option>
+              </select>
+          </div>
+          <div class="header-right">
+              <button class="button" type="button">Fetch</button>
+          </div>
+      </div>
+      
+      <div class="card-body">
+          <h5>Special title treatment</h5>
+          <p>With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#">Go somewhere</a>
+      </div>
+  </div>
+</section>
+<section class="third-card">
+  <div class="card">
+      <div class="card-header">
+          <div class="header-left">
+              <label for="date">year</label>
+              <select name="date" id="date">
+                  <option value="date">2005</option>
+                  <option value="date">2006</option>
+              </select>
+          </div>
+          <div class="header-right">
+              <button class="button" type="button">Fetch</button>
+          </div>
+      </div>
+      
+      <div class="card-body">
+          <h5>Special title treatment</h5>
+          <p>With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#">Go somewhere</a>
+      </div>
+  </div>
+</section>
+
+   Other sections go here -->
+
+</body>
+
+</html>
