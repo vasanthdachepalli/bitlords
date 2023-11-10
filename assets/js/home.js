@@ -1,5 +1,8 @@
+const date = new Date();
 
-fetch('api/dailysingle')
+const today = date.getDate() + "/"+ date.getMonth() + "/" + date.getFullYear()
+
+fetch('api/dailysingle/?date='+today)
 .then(response => response.json())
      .then((data) => {
          console.log(data)

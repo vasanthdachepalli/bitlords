@@ -1,4 +1,7 @@
-fetch('api/month')
+const date = new Date()
+const month = date.getMonth();
+
+fetch('api/month/?month='+ month)
 .then(response => response.json())
      .then((data) => {
          console.log(data)
