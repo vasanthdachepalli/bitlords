@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,77 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bit Lords</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .chart-container {
-            width: 500px;
-            height: 500px;
-           position: relative;
-        
-        }
-    </style>
 </head>
 <body>
     <div class="head">
-        <h1>Heading</h1>
+        <h1>Budget Planner</h1>
     </div>
-    <div class="body">
-        <div class="body-left">
-            <h2 id ="left-content">Total Credit Balance: <%= salary %></h2>
-            <!-- <p id ="left-content">Left content</p> -->
-        </div>
-        <div class="body-right" >
-            <h2 id="right-content">Savings target: <%= saving %> </h2>
-            <!-- <p id ="right-content">Right content</p> -->
-        </div>
-    </div>
-    <div >
-        <div class="form">
-        <form method ="post" action="/home/add">
-            <h1>Add A Transction</h1>
-            <label for="Amount">Amount</label>
-            <input type="number" name="amount"/>
-            <div class="category">
-             <label for="category">Select a Programming category:</label>
-             <select name="category" id="category">
-               <option value="Shopping">Shopping</option>
-               <option value="Entertainment">Enternment</option>
-               <option value="Medical">Medical</option>
-               <option value="Food" selected>Food</option>
-               <option value="others" selected>others</option>
-              </select> 
+    <div class="container">
+        <div class="salary">
+            <div class="content-wrapper">
+                <p class="left-paragraph"><h2>Total Credit Balance: <%= salary %></h2></p>
+                <p class="bottom-paragraph">Your Balance</p>
             </div>
-            <div id="sumbit-button">
-                <button>Submit</button>
-              </div>
-          </form>
-         
+        </div>
+        
+        <div class="target">
+            <div class="content-wrapper">
+                <p class="right-paragraph"><h2>Savings target: <%= saving %> </h2></p>
+                <p class="bottom-paragraph">Your Target</p>
+            </div>
         </div>
     </div>
-  
+    <a href="/visualizer">page two</a>
+    <div class="form">
+        <form method="post" action="/home/add">
+            <h1>Add A Transaction</h1>
+            <label for="Amount">Amount</label>
+            <input type="number" name="amount" />
+            
+            <div class="category">
+                <label for="category">Select a Programming category:</label>
+                <select name="category" id="category">
+                    <option value="Shopping">Shopping</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Food" selected>Food</option>
+                    <option value="others">others</option>
+                </select>
+            </div>
+    
+            <div id="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    
     <div class="chart-container">
-        <span>
-            <canvas id="myPieChart"  style="display: block; box-sizing: border-box; height: 500px; width: 500px;"></canvas>
-        </span>
-            <span>
-                <canvas id ="myPieChart_month"></canvas>
-            </span>
-            <span>
-                <canvas id ="myPieChart_year"></canvas>
-            </span>
+        <div class="chart-wrapper">
+            <h2>Daily</h2>
+            <canvas id="myPieChart"></canvas>
         </div>
-    <div class="today-Transctions">
-        <h1 id="name-today-Transctions">Today's Transctions</h1>
-        <ul id="ul-of-today-Transctions">
-            <% item.forEach((i)=>{ %>
-            <li> ammout : <%= i.ammount %>  category : <%=i.category %></li>
-           <% }) %>
-          </ul>
+        <div class="chart-wrapper">
+            <h2>Montly</h2>
+            <canvas id="myPieChart_month"></canvas>
+        </div>
+        <div class="chart-wrapper">
+            <h2>Yearly</h2>
+            <canvas id="myPieChart_year"></canvas>
+        </div>
+    </div>    
+    
+    <div class="today-Transactions">
+        <h1 id="name-today-Transactions">Today's Transactions</h1>
+        <ul id="ul-of-today-Transactions">
+            <% item.forEach((i) => { %>
+            <li> amount: <%= i.ammount %>  category: <%=i.category %></li>
+            <% }) %>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/home.js"></script>
     <script src="js/month_home.js"></script>
     <script src="js/year_home.js"></script>
-
 </body>
 </html>

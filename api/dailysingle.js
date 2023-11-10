@@ -9,7 +9,7 @@ const monthgenerator = require('../jshelpers/monthnamegenereater');
 app.get('/dailysingle',function(req,res){
 const values1 =[];
 
-data.findOne({tag:req.user.username,date:date()})
+data.findOne({tag:req.user.username,date:req.query.date})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
@@ -29,7 +29,7 @@ res.json(data1);
 app.get('/month',function(req,res){
     const values1 =[];
 
-month.findOne({tag:req.user.username,month:monthgenerator(date1.getMonth())})
+month.findOne({tag:req.user.username,month:monthgenerator(req.query.month)})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
@@ -49,7 +49,7 @@ res.json(data1);
 app.get('/year',function(req,res){
     const values1 =[];
 
-year.findOne({tag:req.user.username,year:date1.getFullYear()})
+year.findOne({tag:req.user.username,year:req.query.year})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);

@@ -1,8 +1,14 @@
 const date = new Date();
 
-const today = date.getDate() + "/"+ date.getMonth() + "/" + date.getFullYear()
 
-fetch('api/dailysingle/?date='+today)
+function daily(){
+    var previousChart = this._myPieChart_daily; // Get the previous chart reference
+
+    // Destroy the previous chart instance if it exists
+    if (previousChart) {
+        previousChart.destroy();
+    }
+fetch('api/dailysingle/?date='+document.getElementById("daily_date").value)
 .then(response => response.json())
      .then((data) => {
          console.log(data)
@@ -11,9 +17,9 @@ fetch('api/dailysingle/?date='+today)
          const values = data.values; // An array of corresponding values
      
          // Create the pie chart
-         var ctx = document.getElementById('myPieChart').getContext('2d');
+         var ctx = document.getElementById('myPieChart_daily').getContext('2d');
          var myPieChart = new Chart(ctx, {
-             type: 'pie',
+             type: document.getElementById("daily_type").value,
              data: {
                  labels: ['shopping','Entertainment','Medical','Food','others'],
                  datasets: [{
@@ -22,8 +28,9 @@ fetch('api/dailysingle/?date='+today)
                  }]
              },
          });
+         this._myPieChart_daily = myPieChart;
      })
      .catch(error => {
          console.error('Error fetching data:', error);
      });
-
+    }

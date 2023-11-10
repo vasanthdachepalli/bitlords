@@ -1,4 +1,7 @@
-fetch('api/year')
+
+const year = date.getFullYear()
+
+fetch('api/year/?year='+year)
 .then(response => response.json())
      .then((data) => {
          console.log(data)

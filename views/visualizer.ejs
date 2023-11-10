@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Charts</title>
+    <link rel="stylesheet" href="css/visualizer.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="#">Bit Lords</a>
+        </div>
+        <nav>
+            <a href="/home">Home</a>
+            <a class="nav-second" href="/home">Categories</a>
+            <a class="nav-third" href="/visualizer">Charts</a>
+        </nav>
+    </header>
+
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Date</label>
+                    <select name="date" id="daily_date">
+                        <% daily.forEach((i) =>{  %>
+                               <option value= <%=i.date %> > <%= i.date %> </option>
+                            <% }) %>
+                    </select>
+                </div>
+                <div class="header-center">
+                    <label for="chart">ChartType</label>
+                    <select name="chart" id="daily_type">
+                        <option value="pie">Pie Chart</option>
+                        <option value="bar">Bar chart</option>
+                        <option value="line">Line chart</option>
+                    </select>
+                </div>
+                <div class="header-right">
+                    <button class="button" onclick="daily()" type="button">Fetch</button>
+                </div>
+            </div>
+            
+            <div class="card-body">
+          <canvas id="myPieChart_daily"></canvas>
+            </div>
+        </div>
+    </section>
+
+
+   
+    <section class="second-card">
+      <div class="card">
+          <div class="card-header">
+              <div class="header-left">
+                  <label for="date">Month</label>
+                  <select name="date" id="date_month">
+                    <% month.forEach((i)=>{ %>
+                      <option value=<%=i.month %>> <%= i.month%></option>
+                     <% }) %>
+                  </select>
+              </div>
+              <div class="header-center">
+                  <label for="chart">ChartType</label>
+                  <select name="chart" id="chart_month">
+                      <option value="pie">Pie Chart</option>
+                      <option value="bar">Bar chart</option>
+                      <option value="line">Line chart</option>
+                  </select>
+              </div>
+              <div class="header-right">
+                  <button class="button" onclick="monthly()">Fetch</button>
+              </div>
+          </div>
+          
+          <div class="card-body">
+             <canvas id="myPieChart_month"></canvas>
+          </div>
+      </div>
+  </section>
+
+  
+  <section class="third-card">
+    <div class="card">
+        <div class="card-header">
+            <div class="header-left">
+                <label for="date">year</label>
+                <select name="date" id="date_year">
+                    <% year.forEach((i)=>{ %>
+                        <option value=<%=i.year %>> <%= i.year%></option>
+                       <% }) %>
+                </select>
+            </div>
+            <div class="header-center">
+                <label for="chart">ChartType</label>
+                <select name="chart" id="chart_year">
+                    <option value="pie">Pie Chart</option>
+                    <option value="bar">Bar chart</option>
+                    <option value="line">Line chart</option>
+                </select>
+            </div>
+            <div class="header-right">
+                <button class="button" onclick="yearly()"  type="button">Fetch</button>
+            </div>
+        </div>
+        
+        <div class="card-body">
+            <canvas id="myPieChart_year"></canvas>
+        </div>
+    </div>
+</section>
+
+
+<section class="first-card">
+  <div class="card">
+      <div class="card-header">
+          <div class="header-left">
+              <label for="category"> category:</label>
+              <select name="category" id="category_daily">
+                <option value="Shopping">Shopping</option>
+                <option value="Entertainment">Enternment</option>
+                <option value="Medical">Medical</option>
+                <option value="Food" >Food</option>
+                <option value="others" selected>others</option>
+                <option value="total">totals</option>
+               </select> 
+          </div>
+          <div class="header-right">
+              <button class="button" onclick="daily1()"  type="button">Fetch</button>
+          </div>
+      </div>
+      
+      <div class="card-body">
+         <canvas id="myPieChart_daily1"></canvas>
+      </div>
+  </div>
+</section>
+<section class="second-card">
+  <div class="card">
+      <div class="card-header">
+          <div class="header-left">
+            <label for="category"> category:</label>
+            <select name="category" id="category_month">
+              <option value="Shopping">Shopping</option>
+              <option value="Entertainment">Enternment</option>
+              <option value="Medical">Medical</option>
+              <option value="Food" selected>Food</option>
+              <option value="others" selected>others</option>
+              <option value="total">totals</option>
+             </select> 
+          </div>
+          <div class="header-right">
+              <button class="button" onclick="month1()" type="button">Fetch</button>
+          </div>
+      </div>
+      
+      <div class="card-body">
+         <canvas id="myPieChart_month1"></canvas>
+      </div>
+  </div>
+</section>
+<section class="third-card">
+  <div class="card">
+      <div class="card-header">
+          <div class="header-left">
+            <label for="category"> category:</label>
+            <select name="category" id="category_year">
+              <option value="Shopping">Shopping</option>
+              <option value="Entertainment">Enternment</option>
+              <option value="Medical">Medical</option>
+              <option value="Food" selected>Food</option>
+              <option value="others" selected>others</option>
+              <option value="total">totals</option>
+             </select> 
+          </div>
+          <div class="header-right">
+              <button class="button" onclick="year1()"  type="button">Fetch</button>
+          </div>
+      </div>
+      
+      <div class="card-body">
+          <canvas id="myPieChart_year1"></canvas>
+      </div>
+  </div>
+</section>
+
+   
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="js/visualizer_daily.js"></script>
+    <script src="js/visualizer_month.js"></script>
+    <script src="js/visualizer_year.js"></script>
+    <script src="js/visualizer_daily_totals.js"></script>
+    <script src="js/pagetwo_monthly.js"></script>
+    <script src="js/pagetwo_yearly.js"></script>
+</body>
+
+</html>
