@@ -5,7 +5,7 @@ function weekly(){
     if (previousChart1) {
         previousChart1.destroy();
     }
-fetch('api/week/?week='+document.getElementById('weekly_date').value )
+fetch('/visualizer/api/week/?week='+document.getElementById('weekly_date').value )
 .then(response => response.json())
      .then((data) => {
          console.log(data)

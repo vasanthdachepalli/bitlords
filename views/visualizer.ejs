@@ -180,6 +180,32 @@
       </div>
   </div>
 </section>
+
+<section class="first-card">
+    <div class="card">
+        <div class="card-header">
+            <div class="header-left">
+                <label for="category"> category:</label>
+                <select name="category" id="category_weekly">
+                  <option value="Shopping">Shopping</option>
+                  <option value="Entertainment">Enternment</option>
+                  <option value="Medical">Medical</option>
+                  <option value="Food" >Food</option>
+                  <option value="others" selected>others</option>
+                  <option value="total">totals</option>
+                 </select> 
+            </div>
+            <div class="header-right">
+                <button class="button" onclick="weekly1()"  type="button">Fetch</button>
+            </div>
+        </div>
+        
+        <div class="card-body">
+           <canvas id="myPieChart_weekly1"></canvas>
+        </div>
+    </div>
+  </section>
+
 <section class="second-card">
   <div class="card">
       <div class="card-header">
@@ -204,6 +230,7 @@
       </div>
   </div>
 </section>
+
 <section class="third-card">
   <div class="card">
       <div class="card-header">
@@ -229,7 +256,42 @@
   </div>
 </section>
 
-   
+<section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_daily_main"></canvas>
+        </div>
+    </div>
+  </section>
+  <section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_week_main"></canvas>
+        </div>
+    </div>
+  </section>
+
+  <section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_month_main"></canvas>
+        </div>
+    </div>
+  </section>
+
+
+  <section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_year_main"></canvas>
+        </div>
+    </div>
+  </section>
+
 
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script src="js/visualizer_daily.js"></script>
@@ -239,6 +301,8 @@
     <script src="js/pagetwo_monthly.js"></script>
     <script src="js/pagetwo_yearly.js"></script>
     <script src="js/visualizer_week.js"></script>
+    <script src="js/netdaily.js"></script>
+    <script src="js/netmonth_year.js"></script>
 </body>
 
 </html>

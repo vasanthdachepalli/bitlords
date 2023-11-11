@@ -39,12 +39,12 @@ Router.get('/month',function(req,res){
         console.log(err);
     })
     })
-
+  const week = require('../models/cateregywiseweekly');
     //const weekgenerater = require('../jshelpers/weekstartandendgenerater');
     // const week1 = weekgenerater(require('./dategenerater')())
    Router.get('/week',function(req,res){
     const values1 =[];
-
+    console.log(req);
     week.findOne({tag:req.user.username,startdate: req.query.week})
     .then((doc)=>{
     values1.push(doc.Shopping);
@@ -60,6 +60,24 @@ Router.get('/month',function(req,res){
     .catch((err) =>{
         console.log(err);
     })
+   })
+ const weekly = require('../models/cateregywiseweekly');
+   Router.get('/week1',function(req,res){
+    const values=[];
+    const labels =[];
+    weekly.find({tag:req.user.username})
+    .then(doc=>{
+        doc.forEach(element => {
+            values.push(element[req.query.category])
+            labels.push(element.startdate)
+        });
+        data ={values:values,labels:labels};
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
    })
 
     Router.get('/year',function(req,res){

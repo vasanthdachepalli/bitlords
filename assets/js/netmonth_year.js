@@ -1,51 +1,5 @@
-
-
-/*
-
 {
- fetch('/api1/daily')
-.then(response => response.json())
-     .then((data) => {
-         console.log(data)
-         // Process the API data (replace with your data processing logic)
-        
-       // An array of corresponding values
-        const data1 = [];
-        data.forEach((element)=>{
-            fetch('api/dailysingle/?date='+date)
-            .then(response=>response.json())
-            .then((data)=>{
-           console.log(data);
-           
-          
-            
-            console.log(data.values);
-            const var1 = {
-                label:element.date,
-                data:data.values,
-                backgroundColor: ['red', 'blue', 'green', 'yellow','black']
-            }
-            data1.push(var1);
-        })
-        })
-        console.log(data1);
-         // Create the pie chart
-         var ctx = document.getElementById('myPieChart_daily_main').getContext('2d');
-         var myPieChart = new Chart(ctx, {
-             type: 'bar',
-             data: {
-                 labels: ['shopping','Entertainment','Medical','Food','others'],
-                 datasets: data1
-             },
-         });
-     })
-     .catch(error => {
-         console.error('Error fetching data:', error);
-     });
-    
-    }
 
-*/
 async function fetchData(url) {
     const response = await fetch(url);
     if (!response.ok) {
@@ -56,7 +10,7 @@ async function fetchData(url) {
 
 async function getDailySingle(date) {
     try {
-        const response = await fetchData(`api/dailysingle/?date=${date}`);
+        const response = await fetchData(`api/month/?month=${date}`);
         //console.log(response);
         return response.values;
     } catch (error) {
@@ -67,7 +21,7 @@ async function getDailySingle(date) {
 
 async function getweek(week){
     try {
-        const response = await fetchData('/visualizer/api/week/?week='+ week );
+        const response = await fetchData('/api/year/?year='+ week );
         //console.log(response);
         return response.values;
     } catch (error) {
@@ -78,20 +32,20 @@ async function getweek(week){
 
 
 
-async function processData() {
+async function processData2() {
     try {
-        const dailyData = await fetchData('/api1/daily');
+        const dailyData = await fetchData('/api1/month');
         //console.log(dailyData);
 
         const data1 = [];
 
         for (const element of dailyData) {
             try {
-                const singleData = await getDailySingle(element.date);
+                const singleData = await getDailySingle(element.month);
                 //console.log(singleData);
 
                 const var1 = {
-                    label: element.date,
+                    label: element.month,
                     data: singleData,
                   //  backgroundColor: ['red', 'blue', 'green', 'yellow', 'black'],
                 };
@@ -104,7 +58,7 @@ async function processData() {
         console.log(data1);
 
         // Create the bar chart
-        var ctx = document.getElementById('myPieChart_daily_main').getContext('2d');
+        var ctx = document.getElementById('myPieChart_month_main').getContext('2d');
         var myBarChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -117,20 +71,20 @@ async function processData() {
     }
 }
 
-async function processData1() {
+async function processData3() {
     try {
-        const dailyData1 = await fetchData('/api1/week');
+        const dailyData1 = await fetchData('/api1/year');
         console.log(dailyData1);
 
         const data1 = [];
 
         for (const element of dailyData1) {
             try {
-                const singleData = await getweek(element.startdate);
+                const singleData = await getweek(element.year);
                 //console.log(singleData);
 
                 const var1 = {
-                    label: element.startdate,
+                    label: element.year,
                     data: singleData,
                   //  backgroundColor: ['red', 'blue', 'green', 'yellow', 'black'],
                 };
@@ -143,7 +97,7 @@ async function processData1() {
         console.log(data1);
 
         // Create the bar chart
-        var ctx = document.getElementById('myPieChart_week_main').getContext('2d');
+        var ctx = document.getElementById('myPieChart_year_main').getContext('2d');
         var myBarChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -156,5 +110,7 @@ async function processData1() {
     }
 }
 // Call processData to initiate the process
-processData();
-processData1();
+processData2();
+processData3();
+
+}
