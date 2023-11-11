@@ -16,6 +16,7 @@ function daily1(){
             data: {
                 labels: data.labels,
                 datasets: [{
+                    label:'daily_chart',
                     data: values,
                     backgroundColor: ['red', 'blue', 'green', 'yellow','black'], // Customize colors
                 }]

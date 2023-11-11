@@ -21,8 +21,10 @@ fetch('api/dailysingle/?date='+document.getElementById("daily_date").value)
          var myPieChart = new Chart(ctx, {
              type: document.getElementById("daily_type").value,
              data: {
+              
                  labels: ['shopping','Entertainment','Medical','Food','others'],
                  datasets: [{
+                    label:'selected daily chart',
                      data: values,
                      backgroundColor: ['red', 'blue', 'green', 'yellow','black'], // Customize colors
                  }]

@@ -119,3 +119,7 @@ hr {
 button:hover {
     background-color: #2980b9;
 }
+
+#myPieChart_daily {
+  height: 20%;
+}
