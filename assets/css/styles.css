@@ -81,7 +81,8 @@ form {
 }
 #myPieChart,
 #myPieChart_month,
-#myPieChart_year {
+#myPieChart_year,
+#myPieChart_week {
     width: 300px;
     height: 300px;
     border: 2px solid #000;

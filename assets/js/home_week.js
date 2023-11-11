@@ -1,14 +1,10 @@
-const date = new Date();
+{
+const date1 = new Date();
+
+const today = date1.getDate() + "/"+ date1.getMonth() + "/" + date1.getFullYear()
 
 
-function daily(){
-    var previousChart = this._myPieChart_daily; // Get the previous chart reference
-
-    // Destroy the previous chart instance if it exists
-    if (previousChart) {
-        previousChart.destroy();
-    }
-fetch('api/dailysingle/?date='+document.getElementById("daily_date").value)
+fetch('api/week')
 .then(response => response.json())
      .then((data) => {
          console.log(data)
@@ -17,22 +13,20 @@ fetch('api/dailysingle/?date='+document.getElementById("daily_date").value)
          const values = data.values; // An array of corresponding values
      
          // Create the pie chart
-         var ctx = document.getElementById('myPieChart_daily').getContext('2d');
+         var ctx = document.getElementById('myPieChart_week').getContext('2d');
          var myPieChart = new Chart(ctx, {
-             type: document.getElementById("daily_type").value,
+             type: 'pie',
              data: {
-              
                  labels: ['shopping','Entertainment','Medical','Food','others'],
                  datasets: [{
-                    label:'selected daily chart',
                      data: values,
                      backgroundColor: ['red', 'blue', 'green', 'yellow','black'], // Customize colors
                  }]
              },
          });
-         this._myPieChart_daily = myPieChart;
      })
      .catch(error => {
          console.error('Error fetching data:', error);
      });
+
     }

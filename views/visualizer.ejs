@@ -37,6 +37,10 @@
                         <option value="pie">Pie Chart</option>
                         <option value="bar">Bar chart</option>
                         <option value="line">Line chart</option>
+                        <option value="radar"> rader chart</option>
+                        <option value="doughnut"> doughnut chart</option>
+                        <option value="polarArea"> polarArea chart</option>
+                        
                     </select>
                 </div>
                 <div class="header-right">
@@ -45,12 +49,44 @@
             </div>
             
             <div class="card-body">
-          <canvas id="myPieChart_daily"></canvas>
+          <canvas id="myPieChart_daily" ></canvas>
             </div>
         </div>
     </section>
 
-
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Date</label>
+                    <select name="date" id="weekly_date">
+                        <% week.forEach((i) =>{  %>
+                               <option value= <%=i.startdate %> > <%= i.startdate %> </option>
+                            <% }) %>
+                    </select>
+                </div>
+                <div class="header-center">
+                    <label for="chart">ChartType</label>
+                    <select name="chart" id="weekly_type">
+                        <option value="pie">Pie Chart</option>
+                        <option value="bar">Bar chart</option>
+                        <option value="line">Line chart</option>
+                        <option value="radar"> rader chart</option>
+                        <option value="doughnut"> doughnut chart</option>
+                        <option value="polarArea"> polarArea chart</option>
+                        
+                    </select>
+                </div>
+                <div class="header-right">
+                    <button class="button" onclick="weekly()" type="button">Fetch</button>
+                </div>
+            </div>
+            
+            <div class="card-body">
+          <canvas id="myPieChart_week" ></canvas>
+            </div>
+        </div>
+    </section>
    
     <section class="second-card">
       <div class="card">
@@ -69,6 +105,9 @@
                       <option value="pie">Pie Chart</option>
                       <option value="bar">Bar chart</option>
                       <option value="line">Line chart</option>
+                      <option value="radar"> rader chart</option>
+                    <option value="doughnut"> doughnut chart</option>
+                    <option value="polarArea"> polarArea chart</option>
                   </select>
               </div>
               <div class="header-right">
@@ -100,6 +139,9 @@
                     <option value="pie">Pie Chart</option>
                     <option value="bar">Bar chart</option>
                     <option value="line">Line chart</option>
+                    <option value="radar"> rader chart</option>
+                        <option value="doughnut"> doughnut chart</option>
+                        <option value="polarArea"> polarArea chart</option>
                 </select>
             </div>
             <div class="header-right">
@@ -138,6 +180,32 @@
       </div>
   </div>
 </section>
+
+<section class="first-card">
+    <div class="card">
+        <div class="card-header">
+            <div class="header-left">
+                <label for="category"> category:</label>
+                <select name="category" id="category_weekly">
+                  <option value="Shopping">Shopping</option>
+                  <option value="Entertainment">Enternment</option>
+                  <option value="Medical">Medical</option>
+                  <option value="Food" >Food</option>
+                  <option value="others" selected>others</option>
+                  <option value="total">totals</option>
+                 </select> 
+            </div>
+            <div class="header-right">
+                <button class="button" onclick="weekly1()"  type="button">Fetch</button>
+            </div>
+        </div>
+        
+        <div class="card-body">
+           <canvas id="myPieChart_weekly1"></canvas>
+        </div>
+    </div>
+  </section>
+
 <section class="second-card">
   <div class="card">
       <div class="card-header">
@@ -162,6 +230,7 @@
       </div>
   </div>
 </section>
+
 <section class="third-card">
   <div class="card">
       <div class="card-header">
@@ -187,7 +256,42 @@
   </div>
 </section>
 
-   
+<section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_daily_main"></canvas>
+        </div>
+    </div>
+  </section>
+  <section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_week_main"></canvas>
+        </div>
+    </div>
+  </section>
+
+  <section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_month_main"></canvas>
+        </div>
+    </div>
+  </section>
+
+
+  <section class="third-card">
+    <div class="card">
+       
+        <div class="card-body">
+            <canvas id="myPieChart_year_main"></canvas>
+        </div>
+    </div>
+  </section>
+
 
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script src="js/visualizer_daily.js"></script>
@@ -196,6 +300,9 @@
     <script src="js/visualizer_daily_totals.js"></script>
     <script src="js/pagetwo_monthly.js"></script>
     <script src="js/pagetwo_yearly.js"></script>
+    <script src="js/visualizer_week.js"></script>
+    <script src="js/netdaily.js"></script>
+    <script src="js/netmonth_year.js"></script>
 </body>
 
 </html>
