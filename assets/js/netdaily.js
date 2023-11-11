@@ -1,51 +1,3 @@
-
-
-/*
-
-{
- fetch('/api1/daily')
-.then(response => response.json())
-     .then((data) => {
-         console.log(data)
-         // Process the API data (replace with your data processing logic)
-        
-       // An array of corresponding values
-        const data1 = [];
-        data.forEach((element)=>{
-            fetch('api/dailysingle/?date='+date)
-            .then(response=>response.json())
-            .then((data)=>{
-           console.log(data);
-           
-          
-            
-            console.log(data.values);
-            const var1 = {
-                label:element.date,
-                data:data.values,
-                backgroundColor: ['red', 'blue', 'green', 'yellow','black']
-            }
-            data1.push(var1);
-        })
-        })
-        console.log(data1);
-         // Create the pie chart
-         var ctx = document.getElementById('myPieChart_daily_main').getContext('2d');
-         var myPieChart = new Chart(ctx, {
-             type: 'bar',
-             data: {
-                 labels: ['shopping','Entertainment','Medical','Food','others'],
-                 datasets: data1
-             },
-         });
-     })
-     .catch(error => {
-         console.error('Error fetching data:', error);
-     });
-    
-    }
-
-*/
 async function fetchData(url) {
     const response = await fetch(url);
     if (!response.ok) {
@@ -110,7 +62,11 @@ async function processData() {
             data: {
                 labels: ['shopping', 'Entertainment', 'Medical', 'Food', 'others'],
                 datasets: data1,
-            },
+            },options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set this to false to define your own chart size
+                height: 400, // Define the height
+            }
         });
     } catch (error) {
         console.error('Error processing data:', error);
@@ -149,7 +105,11 @@ async function processData1() {
             data: {
                 labels: ['shopping', 'Entertainment', 'Medical', 'Food', 'others'],
                 datasets: data1,
-            },
+            },options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set this to false to define your own chart size
+                height: 400, // Define the height
+            }
         });
     } catch (error) {
         console.error('Error processing data:', error);
