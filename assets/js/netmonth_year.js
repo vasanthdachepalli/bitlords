@@ -64,7 +64,11 @@ async function processData2() {
             data: {
                 labels: ['shopping', 'Entertainment', 'Medical', 'Food', 'others'],
                 datasets: data1,
-            },
+            },options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set this to false to define your own chart size
+                height: 400, // Define the height
+            }
         });
     } catch (error) {
         console.error('Error processing data:', error);
@@ -103,7 +107,11 @@ async function processData3() {
             data: {
                 labels: ['shopping', 'Entertainment', 'Medical', 'Food', 'others'],
                 datasets: data1,
-            },
+            },options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set this to false to define your own chart size
+                height: 400, // Define the height
+            }
         });
     } catch (error) {
         console.error('Error processing data:', error);
