@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Demo</title>
+    <link rel="stylesheet" href="css/friends.css">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="#">Bit Lords</a>
+        </div>
+        
+        <nav>
+            <a href="/home">Home</a>
+            <a class="nav-second" href="#">Categories</a>
+            <a class="nav-third" href="/visualizer">Charts</a>
+        </nav>
+        <div class="friend-logo">
+            <a href="/friend">
+            <img src="images/add friend.png" alt="Friend's Logo">
+            </a>
+        </div>
+       
+    </header>
+
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Your Friends</label>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <ul>
+                    <li>Venky</li>
+                    <li>vasanth</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="second-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Send A Friend Request</label>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <form>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" oninput="toggleSubmitButton()" required>
+            
+                    <button type="button" onclick="checkUsername()">Check</button>
+                    <button type="submit" id="submitButton">Submit</button>
+                </form>
+            
+                <script>
+                    var initialUsername = ''; // Variable to store the initial username
+                    toggleSubmitButton()
+                    function toggleSubmitButton() {
+                        var username = document.getElementById('username').value;
+                        var submitButton = document.getElementById('submitButton');
+            
+                        // Check if username has changed
+                        if (username !== initialUsername) {
+                            submitButton.style.display = 'none'; // Hide the Submit button
+                        } else {
+                            // Show the Submit button if username is not empty
+                            submitButton.style.display = username.trim() !== '' ? 'inline-block' : 'none';
+                        }
+                    }
+            
+                    function checkUsername() {
+                        initialUsername = document.getElementById('username').value; // Save the initial username
+                        toggleSubmitButton();
+                    }
+                </script>
+            
+            
+            </div>
+        </div>
+    </section>
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Incoming Friend Requests</label>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <ul>
+                    <li>Venky</li>
+                    <li>vasanth</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <script src="js/friend.js"></script>
+    <!-- Other sections go here -->
+
+</body>
+
+</html>

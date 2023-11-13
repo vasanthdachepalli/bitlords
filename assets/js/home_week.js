@@ -7,7 +7,7 @@
 fetch('api/week')
 .then(response => response.json())
      .then((data) => {
-         console.log(data)
+         //console.log(data)
          // Process the API data (replace with your data processing logic)
         
          const values = data.values; // An array of corresponding values

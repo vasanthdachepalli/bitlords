@@ -44,7 +44,7 @@ Router.get('/month',function(req,res){
     // const week1 = weekgenerater(require('./dategenerater')())
    Router.get('/week',function(req,res){
     const values1 =[];
-    console.log(req);
+    //console.log(req);
     week.findOne({tag:req.user.username,startdate: req.query.week})
     .then((doc)=>{
     values1.push(doc.Shopping);

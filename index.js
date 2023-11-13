@@ -28,7 +28,7 @@ passport.serializeUser(User.serializeUser());
 
 passport.deserializeUser(User.deserializeUser());
 
-
+app.use("/friend",require("./routes/friend"));
 app.use("/api1",require("./api/visual_api1"));
 app.use("/api",require("./api/dailysingle"));
 app.use("/home",require('./routes/home'));
