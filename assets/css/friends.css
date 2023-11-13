@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 1% 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    /* padding-bottom: 20%; */
+}
+
+#logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding-left: 50%;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 10%;
+    margin-right: 5%;
+}
+.nav-second{
+    padding-left: 50%;
+}
+.nav-third{
+    padding-left: 50%;
+}
+
+/* nav a:hover {
+    background-color: yellow;
+} */
+
+
+.first-card {
+    padding-top: 20%;
+    padding: 2%;
+    padding-top: 10%;
+}
+.second-card{
+    padding: 2%; 
+}
+.third-card{
+    padding: 2%;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+
+.card-header {
+    background-color: #333f;
+    color: white;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1%;
+    padding: 2%;
+}
+
+.header-left,
+.header-right,
+.header-center {
+    display: flex;
+    align-items: center;
+}
+
+.label-margin {
+    margin-right: 2%;
+}
+
+select,
+button {
+    margin-left: 2%;
+}
+
+hr {
+    margin: 1% 0;
+}
+
+.card-body {
+    /* text-align: center; */
+}
+
+.button {
+    width: 100px; /* Adjusted width for increased size */
+    height: 40px;
+    padding: 1% 2%;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+.friend-logo {
+    margin-left: auto; /* Push the friend's logo to the right */
+    margin-right: 10%; /* Add some margin for spacing */
+}
+
+.friend-logo img {
+    width: 40px; 
+    height: 40px; 
+}
+form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
