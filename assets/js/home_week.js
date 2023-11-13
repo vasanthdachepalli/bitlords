@@ -1,7 +1,7 @@
 {
-const date1 = new Date();
+//const date1 = new Date();
 
-const today = date1.getDate() + "/"+ date1.getMonth() + "/" + date1.getFullYear()
+//const today = date1.getDate() + "/"+ date1.getMonth() + "/" + date1.getFullYear()
 
 
 fetch('api/week')

@@ -28,7 +28,7 @@ module.exports = function(req,res,next){
      console.log(err);
     })
     
-    const week1 = weekgenerater(dategenerater())
+    const week1 = weekgenerater(date)
    
     week.findOne({tag:req.user.username,startdate:week1.monday})
     .then(doc =>{

@@ -8,7 +8,7 @@ const dategenerater = require('../api/dategenerater');
 const monthgenerator = require('../jshelpers/monthnamegenereater');
 const { count } = require('console');
 module.exports = function(req,res,next){
-     const week = weekgenerater(dategenerater());
+     const week = weekgenerater(date);
     user.countDocuments({tag:req.user.username,date:dategenerater()})
     .then(count=>{
       if(count == 0){
