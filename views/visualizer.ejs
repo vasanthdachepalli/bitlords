@@ -65,7 +65,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="header-left">
-                    <label for="date">Date</label>
+                    <label for="date">week</label>
                     <select name="date" id="weekly_date">
                         <% week.forEach((i) =>{  %>
                                <option value= <%=i.startdate %> > <%= i.startdate %> </option>
@@ -299,7 +299,7 @@
     </div>
   </section>
 
-
+  <%- include('partials/foot.ejs') %>
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script src="js/visualizer_daily.js"></script>
     <script src="js/visualizer_month.js"></script>
