@@ -62,10 +62,6 @@ async function processData() {
             data: {
                 labels: ['shopping', 'Entertainment', 'Medical', 'Food', 'others'],
                 datasets: data1,
-            },options: {
-                responsive: true,
-                maintainAspectRatio: false, // Set this to false to define your own chart size
-                height: 400, // Define the height
             }
         });
     } catch (error) {
@@ -108,7 +104,7 @@ async function processData1() {
             },options: {
                 responsive: true,
                 maintainAspectRatio: false, // Set this to false to define your own chart size
-                height: 400, // Define the height
+                height: 700, // Define the height
             }
         });
     } catch (error) {

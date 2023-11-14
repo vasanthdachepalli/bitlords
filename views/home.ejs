@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bit Lords</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <div class="head">
-        <h1>Budget Planner</h1>
-    </div>
+ 
+
+    
+   <%- include('partials/nav.ejs') %>
+    <%- include('partials/header.ejs') %>
+  
     <div class="container">
         <div class="salary">
             <div class="content-wrapper">
@@ -26,7 +30,7 @@
             </div>
         </div>
     </div>
-    <a href="/visualizer">page two</a>
+    
     <div class="form">
         <form method="post" action="/home/add">
             <h1>Add A Transaction</h1>
@@ -79,6 +83,8 @@
             <% }) %>
         </ul>
     </div>
+
+    <%- include('partials/foot.ejs') %>
     <script src="js/home_week.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/home.js"></script>

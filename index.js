@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require('./models/user');
 const app = express();
+require('dotenv').config();
 const mid1 = require('./routes/home');
 const mongoose = require('mongoose');
 const path = require("path");
@@ -14,14 +15,14 @@ app.use(express.static(__dirname+"/assets"));
 app.set('views', path.join(__dirname, '/views'))
 app.set('view engine', 'ejs');
 app.use(session({
-    secret: "hello",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
   }));
   
   app.use(passport.initialize());
   app.use(passport.session());
-  mongoose.connect("mongodb://127.0.0.1:27017/bitlords", {useNewUrlParser: true});
+  mongoose.connect("mongodb+srv://vasanthdachepalli:Vasanth@bitlords-db.w4uecqp.mongodb.net/?retryWrites=true&w=majority");
   passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
