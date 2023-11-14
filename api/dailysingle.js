@@ -30,7 +30,7 @@ res.json(data1);
 
 })
 const weekgenerater = require('../jshelpers/weekstartandendgenerater');
-const week1 = weekgenerater(require('./dategenerater')())
+const week1 = weekgenerater(date1)
 app.get('/week',function(req,res){
     const values1 =[];
 
