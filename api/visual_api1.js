@@ -4,7 +4,7 @@ const daily = require('../models/catoregywisedaily');
 const monthly = require('../models/cateregywisemonthly');
 const yearly = require('../models/cateregywiseyearly');
 const weekly = require('../models/cateregywiseweekly');
-const { use } = require('passport');
+
 
 Router.get('/daily',function(req,res){
     daily.find({tag:req.user.username})
@@ -30,4 +30,6 @@ Router.get('/year',function(req,res){
       res.json(doc)
     })
 })
+
+
 module.exports = Router

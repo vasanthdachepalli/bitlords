@@ -37,8 +37,10 @@
             
             <div class="card-body">
                 <ul>
-                    <li>Venky</li>
-                    <li>vasanth</li>
+                  <% friend.forEach((i) => { %>    
+                    <li><%= i.friend_id %></li>
+                 
+                    <% }) %>
                 </ul>
             </div>
         </div>
@@ -52,37 +54,13 @@
             </div>
             
             <div class="card-body">
-                <form>
+                <form action="/friend/add" method="post">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" oninput="toggleSubmitButton()" required>
             
                     <button type="button" onclick="checkUsername()">Check</button>
                     <button type="submit" id="submitButton">Submit</button>
-                </form>
-            
-                <script>
-                    var initialUsername = ''; // Variable to store the initial username
-                    toggleSubmitButton()
-                    function toggleSubmitButton() {
-                        var username = document.getElementById('username').value;
-                        var submitButton = document.getElementById('submitButton');
-            
-                        // Check if username has changed
-                        if (username !== initialUsername) {
-                            submitButton.style.display = 'none'; // Hide the Submit button
-                        } else {
-                            // Show the Submit button if username is not empty
-                            submitButton.style.display = username.trim() !== '' ? 'inline-block' : 'none';
-                        }
-                    }
-            
-                    function checkUsername() {
-                        initialUsername = document.getElementById('username').value; // Save the initial username
-                        toggleSubmitButton();
-                    }
-                </script>
-            
-            
+                </form>           
             </div>
         </div>
     </section>
@@ -96,8 +74,13 @@
             
             <div class="card-body">
                 <ul>
-                    <li>Venky</li>
-                    <li>vasanth</li>
+                    <% friend_req.forEach((i) =>{ %>
+                    <li> Request from: <%= i.friend_sender %>   <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=1">Add Friend</a>
+                        <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=0">reject Friend</a>
+
+                    </li>
+                   
+                    <% }) %>
                 </ul>
             </div>
         </div>
@@ -107,7 +90,7 @@
 
 
     <script src="js/friend.js"></script>
-    <!-- Other sections go here -->
+  
 
 </body>
 
