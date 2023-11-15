@@ -7,25 +7,25 @@ const weekly = require('../models/cateregywiseweekly');
 
 
 Router.get('/daily',function(req,res){
-    daily.find({tag:req.user.username})
+    daily.find({tag:{ $eq:req.user.username}})
     .then(doc =>{
         res.json(doc);
     })
 })
 Router.get('/week',function(req,res){
-    weekly.find({tag:req.user.username})
+    weekly.find({tag:{ $eq:req.user.username}})
     .then(doc =>{
         res.json(doc);
     })
 })
 Router.get('/month',function(req,res){
-   monthly.find({tag:req.user.username})
+   monthly.find({tag:{ $eq:req.user.username}})
    .then(doc=>{
     res.json(doc);
    })
 })
 Router.get('/year',function(req,res){
-    yearly.find({tag:req.user.username})
+    yearly.find({tag:{ $eq:req.user.username}})
     .then((doc)=>{
       res.json(doc)
     })

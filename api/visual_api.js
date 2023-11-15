@@ -8,7 +8,7 @@ Router.get('/daily',function(req,res){
    
 const values=[];
 const labels =[];
-daily.find({tag:req.user.username})
+daily.find({tag:{ $eq:req.user.username}})
 .then(doc=>{
     doc.forEach(element => {
         values.push(element[req.query.category])
@@ -26,7 +26,7 @@ Router.get('/month',function(req,res){
    
     const values=[];
     const labels =[];
-    monthly.find({tag:req.user.username})
+    monthly.find({tag:{ $eq:req.user.username}})
     .then(doc=>{
         doc.forEach(element => {
             values.push(element[req.query.category])
@@ -45,7 +45,7 @@ Router.get('/month',function(req,res){
    Router.get('/week',function(req,res){
     const values1 =[];
     //console.log(req);
-    week.findOne({tag:req.user.username,startdate: req.query.week})
+    week.findOne({tag:{ $eq:req.user.username},startdate: { $eq:req.query.week}})
     .then((doc)=>{
     values1.push(doc.Shopping);
     values1.push(doc.Entertainment);
@@ -65,7 +65,7 @@ Router.get('/month',function(req,res){
    Router.get('/week1',function(req,res){
     const values=[];
     const labels =[];
-    weekly.find({tag:req.user.username})
+    weekly.find({tag:{ $eq:req.user.username}})
     .then(doc=>{
         doc.forEach(element => {
             values.push(element[req.query.category])
@@ -83,7 +83,7 @@ Router.get('/month',function(req,res){
     Router.get('/year',function(req,res){
         const values=[];
     const labels =[];
-    yearly.find({tag:req.user.username})
+    yearly.find({tag:{ $eq:req.user.username}})
     .then(doc=>{
         doc.forEach(element => {
             values.push(element[req.query.category])

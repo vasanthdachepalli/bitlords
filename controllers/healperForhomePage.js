@@ -9,7 +9,7 @@ const monthgenerator = require('../jshelpers/monthnamegenereater');
 const { count } = require('console');
 module.exports = function(req,res,next){
      const week = weekgenerater(date);
-    user.countDocuments({tag:req.user.username,date:dategenerater()})
+    user.countDocuments({tag:{ $eq:req.user.username},date:{ $eq:dategenerater()}})
     .then(count=>{
       if(count == 0){
           user.create(
@@ -33,7 +33,7 @@ module.exports = function(req,res,next){
      })
 
      
-     weekly.countDocuments({tag:req.user.username,startdate:week.monday})
+     weekly.countDocuments({tag:{ $eq:req.user.username},startdate:{ $eq:week.monday}})
      .then(count =>{
         if(count == 0){
            weekly.create({
@@ -56,7 +56,7 @@ module.exports = function(req,res,next){
         console.log(err);
        })
 
-    monthly.countDocuments({tag:req.user.username,month:monthgenerator(date.getMonth())})
+    monthly.countDocuments({tag:{ $eq:req.user.username},month:{ $eq:monthgenerator(date.getMonth())}})
     .then(count =>{
         if(count == 0){
             monthly.create({
@@ -76,7 +76,7 @@ module.exports = function(req,res,next){
     .catch(err=>{
         console.log(err);
     })
-    yearly.countDocuments({tag:req.user.username,year:date.getFullYear()})
+    yearly.countDocuments({tag:{ $eq:req.user.username},year:{ $eq:date.getFullYear()}})
     .then(count=>{
         if(count == 0){
             yearly.create({

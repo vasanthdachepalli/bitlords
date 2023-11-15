@@ -7,8 +7,8 @@ const Router = express.Router();
 Router.get('/',async function(req,res){
 
     
-    const doc = await friend_req.find({friend_reciever:req.user.username})
-    const doc1 = await friend.find({tag:req.user.username});
+    const doc = await friend_req.find({friend_reciever:{ $eq:req.user.username}})
+    const doc1 = await friend.find({tag:{ $eq:req.user.username}});
 
 
 
@@ -31,7 +31,7 @@ Router.get('/addfriend',function(req,res){
 
 
     }
-    friend_req.deleteOne({friend_sender:req.query.friend,friend_reciever:req.user.username})
+    friend_req.deleteOne({friend_sender:{ $eq:req.query.friend},friend_reciever:{ $eq:req.user.username}})
     .then(()=>{
         console.log("deleted")
     })

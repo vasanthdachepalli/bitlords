@@ -10,7 +10,7 @@ const monthgenerator = require('../jshelpers/monthnamegenereater');
 app.get('/dailysingle',function(req,res){
 const values1 =[];
 
-data.findOne({tag:req.user.username,date:req.query.date})
+data.findOne({tag:{ $eq:req.user.username},date:{ $eq:req.query.date}})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
@@ -34,7 +34,7 @@ const week1 = weekgenerater(date1)
 app.get('/week',function(req,res){
     const values1 =[];
 
-week.findOne({tag:req.user.username,startdate:week1.monday})
+week.findOne({tag:{ $eq:req.user.username},startdate:{ $eq:week1.monday}})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
@@ -54,7 +54,7 @@ res.json(data1);
 app.get('/month',function(req,res){
     const values1 =[];
 
-month.findOne({tag:req.user.username,month:monthgenerator(req.query.month)})
+month.findOne({tag:{ $eq:req.user.username},month:{ $eq:monthgenerator(req.query.month)}})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
@@ -74,7 +74,7 @@ res.json(data1);
 app.get('/year',function(req,res){
     const values1 =[];
 
-year.findOne({tag:req.user.username,year:req.query.year})
+year.findOne({tag:{ $eq:req.user.username},year:{ $eq:req.query.year}})
 .then((doc)=>{
 values1.push(doc.Shopping);
 values1.push(doc.Entertainment);
