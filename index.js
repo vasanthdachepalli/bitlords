@@ -24,7 +24,6 @@ app.use(session({
   app.use(passport.session());
   mongoose.connect("mongodb+srv://vasanthdachepalli:Vasanth@bitlords-db.w4uecqp.mongodb.net/?retryWrites=true&w=majority");
   passport.use(User.createStrategy());
-
 passport.serializeUser(User.serializeUser());
 
 passport.deserializeUser(User.deserializeUser());

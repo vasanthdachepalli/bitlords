@@ -7,9 +7,9 @@ const dategenerater = require('../api/dategenerater');
 Router.get("/",require('../controllers/deleter'),require('../controllers/healperForhomePage'),function(req,res){
 
 
-salarydata.findOne({tag:req.user.username})
+salarydata.findOne({tag: { $eq:req.user.username }})
 .then(doc =>{
-   transtiondata.find({tag:req.user.username})
+   transtiondata.find({tag: { $eq:req.user.username}})
    .then(records =>{
     
     res.render('home',{
@@ -31,10 +31,10 @@ const date = new Date();
 Router.post("/add",require('../controllers/updaterForDMW'),function(req,res){
   
 
-    salarydata.findOne({tag:req.user.username})
+    salarydata.findOne({tag:{ $eq:req.user.username}})
     .then(doc =>{
        
-        salarydata.findOneAndUpdate({tag:req.user.username},{balance:(doc.balance- req.body.amount)})
+        salarydata.findOneAndUpdate({tag:{ $eq:req.user.username}},{balance:(doc.balance- req.body.amount)})
         .then(()=>{
             console.log("updated succesfully");
         })
