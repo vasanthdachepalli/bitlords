@@ -1,5 +1,5 @@
 const friend = require('../models/friends_list');
-const userdase = require('../models/user');
+const userdase = require('../models/userdata');
 const express = require('express')
 const Router = express.Router();
 const friend_req = require('../models/friends_request');
@@ -26,13 +26,13 @@ const friend_req = require('../models/friends_request');
 Router.get('/', function(req, res) {
     console.log(req.query.name);
 
-    userdase.countDocuments({ username: { $eq:req.query.name} })
+    userdase.countDocuments({ display_name: { $eq:req.query.name} })
         .then(count1 => {
-            return friend.countDocuments({ tag:{ $eq: req.user.username}, friend_id:{ $eq: req.query.name} })
+            return friend.countDocuments({ tag:{ $eq: req.user.username}, friend_name:{ $eq: req.query.name} })
                 .then(count2 => {
-                    return friend_req.countDocuments({ friend_sender:{ $eq: req.user.username}, friend_reciever: { $eq:req.query.friend }})
+                    return friend_req.countDocuments({ friend_sender_tag:{ $eq: req.user.username}, friend_reciever: { $eq:req.query.friend }})
                         .then(count3 => {
-                            return friend_req.countDocuments({ friend_reciever: { $eq:req.user.username}, friend_sender: { $eq:req.query.friend} })
+                            return friend_req.countDocuments({ friend_reciever_tag: { $eq:req.user.username}, friend_sender: { $eq:req.query.friend} })
                                 .then(count4 => {
                                     const yes1 = { value: '1' };
                                     const no1 = { value: '0' };

@@ -38,7 +38,7 @@
             <div class="card-body">
                 <ul>
                   <% friend.forEach((i) => { %>    
-                    <li><%= i.friend_id %></li>
+                    <li><%= i.friend_name%></li>
                  
                     <% }) %>
                 </ul>
@@ -55,7 +55,7 @@
             
             <div class="card-body">
                 <form action="/friend/add" method="post">
-                    <label for="username">Username:</label>
+                    <label for="username">displayname:</label>
                     <input type="text" id="username" name="username" oninput="toggleSubmitButton()" required>
             
                     <button type="button" onclick="checkUsername()">Check</button>

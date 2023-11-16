@@ -85,6 +85,8 @@ app.get("/auth/google/login",
     })
  
   });
+
+  
 app.use("/data",require("./routes/data_adder"));
 app.use("/api2",require("./api/friend_api"));
 app.use("/friend",require("./routes/friend"));
