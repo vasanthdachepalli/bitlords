@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Splitter</title>
+  <link rel="stylesheet" href="gruops.css">
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <a href="#">Bit Lords</a>
+    </div>
+    
+    <nav>
+      <a href="#">Home</a>
+      <a class="nav-second" href="#">Categories</a>
+      <a class="nav-third" href="#">Charts</a>
+    </nav>
+    <div class="friend-logo">
+      <img src="add friend.png" alt="Friend's Logo">
+    </div>
+  </header>
+  
+  <main>
+    
+      <section class="first-card">
+        <div class="card">
+          <div class="card-header">
+            <div class="header-left">
+              <label for="date">Create Group</label>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="groupForm">
+                <div class="form-group">
+                  <label for="groupName">Group Name:</label>
+                  <input type="text" id="groupName" required>
+                </div>
+                <div class="form-group" id="create-gruop-button">
+                  <button type="submit" class="button">Create</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </section>
+      
+      <section id="groupsList" class="second-card">
+        <div class="card">
+            <div class="card-header">
+              <div class="header-left">
+                <label for="date">Gruops</label>
+              </div>
+            </div>
+            <div class="card-body">
+                <ul id="groups">
+                    <li>Black Out</li>
+                    <li>Nainital trip</li>
+                    <li>Haridwar trip</li>
+                  </ul>
+            </div>
+          </div>
+        
+      </section>
+      
+      <section id="friendsList" class="third-card">
+       
+            <div class="card">
+                <div class="card-header">
+                  <div class="header-left">
+                    <label for="date">My Friends</label>
+                  </div>
+                </div>
+                <div class="card-body">
+                    <ul id="friends">
+                        <li>vishal</li>
+                        <li>vasanth</li>
+                        <li>venky</li>
+                      </ul>
+                </div>
+              </div>
+            
+         
+      </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
