@@ -19,15 +19,8 @@ app.post("/register", function(req, res){
         } else {
           passport.authenticate("local")(req, res, function(){
             //create a profile data for them that can be edited by him in next page
-           userdata.create({
-            tag:req.body.username,
-            salary:req.body.salary,
-            balance:req.body.salary,
-            saving:req.body.saving,
-            monthnumber:date.getMonth()
-
-           });
-            res.redirect("/home");
+        
+            res.redirect("/data");
           });
           
         }
