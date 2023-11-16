@@ -26,7 +26,7 @@ const friend_req = require('../models/friends_request');
 Router.get('/', function(req, res) {
     console.log(req.query.name);
 
-    userdase.countDocuments({ display_name: { $eq:req.query.name} })
+    userdase.countDocuments({ display_Name: { $eq:req.query.name} })
         .then(count1 => {
             return friend.countDocuments({ tag:{ $eq: req.user.username}, friend_name:{ $eq: req.query.name} })
                 .then(count2 => {

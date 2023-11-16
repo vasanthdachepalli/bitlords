@@ -21,7 +21,8 @@ res.render('friend',{
 Router.get('/addfriend',async function(req,res){
 
     const doc = await userbase.findOne({tag:req.user.username});
-    const doc1 =await userbase.findOne({display_name:req.query.friend});
+    const doc1 =await userbase.findOne({display_Name:req.query.friend});
+    //console.log(doc1);
     if(req.query.type == '1'){
      friend.create({
         tag:req.user.username,
@@ -31,12 +32,12 @@ Router.get('/addfriend',async function(req,res){
      friend.create({
         tag:doc1.tag,
         friend_id:req.user.username,
-        friend_name:doc.display_name
+        friend_name:doc.display_Name
      })
 
 
     }
-    friend_req.deleteOne({friend_sender:{ $eq:req.query.friend},friend_reciever:{ $eq:req.user.username}})
+    friend_req.deleteOne({friend_sender:{ $eq:req.query.friend},friend_reciever_tag:{ $eq:req.user.username}})
     .then(()=>{
         console.log("deleted")
     })
@@ -46,10 +47,13 @@ Router.get('/addfriend',async function(req,res){
     res.redirect('/friend');
 })
 Router.post('/add', async function(req,res){
-    const doc1 =await userbase.findOne({display_name:req.query.friend});
+    const doc1 =await userbase.findOne({display_Name:req.body.friend});
+    const doc = await userbase.findOne({tag:req.user.username});
+    //console.log(doc1);
 friend_req.create({
     friend_sender_tag:req.user.username,
-    friend_reciever:req.body.username,
+    friend_sender:doc.display_Name,
+    friend_reciever:req.body.friend,
     friend_reciever_tag:doc1.tag
 
 })
