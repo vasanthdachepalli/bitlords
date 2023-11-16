@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require('./models/user');
+const user_id = require('./models/userdata');
 const app = express();
 require('dotenv').config();
 const mid1 = require('./routes/home');
@@ -9,6 +10,8 @@ const session = require('express-session');
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const rateLimit = require('express-rate-limit');
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const findOrCreate = require('mongoose-findorcreate');
 
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -38,9 +41,50 @@ app.use(session({
   app.use(passport.session());
   mongoose.connect("mongodb+srv://vasanthdachepalli:Vasanth@bitlords-db.w4uecqp.mongodb.net/?retryWrites=true&w=majority");
   passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+  
+  passport.deserializeUser(function(id, done) {
+    User.findById(id)
+      .then(user => done(null, user))
+      .catch(err => done(err, null));
+  });
+  
+  passport.use(new GoogleStrategy({
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: "http://localhost:3000/auth/google/login",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+    },
+    function(accessToken, refreshToken, profile, cb) {
+     // console.log(profile);
+  
+      User.findOrCreate({ username: profile.id }, function (err, user) {
+        return cb(err, user);
 
-passport.deserializeUser(User.deserializeUser());
+      });
+    }
+  ));
+
+
+  app.get("/auth/google",
+  passport.authenticate('google', { scope: ["profile"] })
+);
+
+app.get("/auth/google/login",
+  passport.authenticate('google', { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect to secrets.
+    user_id.countDocuments({tag:{$eq:req.user.username}})
+    .then(count =>{
+      if(count == 0)
+      res.redirect("/data");
+    else
+    res.redirect("/home");
+    })
+ 
+  });
 app.use("/data",require("./routes/data_adder"));
 app.use("/api2",require("./api/friend_api"));
 app.use("/friend",require("./routes/friend"));
