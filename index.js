@@ -41,6 +41,7 @@ app.use(session({
 passport.serializeUser(User.serializeUser());
 
 passport.deserializeUser(User.deserializeUser());
+app.use("/data",require("./routes/data_adder"));
 app.use("/api2",require("./api/friend_api"));
 app.use("/friend",require("./routes/friend"));
 app.use("/api1",require("./api/visual_api1"));
