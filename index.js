@@ -85,8 +85,9 @@ app.get("/auth/google/login",
     })
  
   });
-
-
+app.use("/membersDataFecher",require("./api/members_data"));
+app.use("/member",require("./routes/member"))
+app.use("/groups",require("./routes/groups"));
 app.use("/data",require("./routes/data_adder"));
 app.use("/api2",require("./api/friend_api"));
 app.use("/friend",require("./routes/friend"));

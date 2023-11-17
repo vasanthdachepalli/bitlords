@@ -1,0 +1,153 @@
+h1{
+    display: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    padding-top: 60px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.split-transaction {
+    width: 50%; /* Adjust the width percentage as needed */
+    margin: 20px 5%; /* Adjust margin as needed */
+    height: 10% /* Adjust the height percentage as needed */
+}
+
+.add-member {
+    margin-top: 50%;
+    width: 30%; /* Adjust the width as needed */
+    max-width: 300px; /* Set a maximum width if necessary */
+    height: 30%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #555;
+    transition: box-shadow 0.3s;
+}
+
+th {
+    background-color: #555;
+    color: white;
+}
+
+td {
+    background-color: white;
+}
+
+button.action,
+button.action1,
+button.equal {
+    padding: 8px 12px;
+    margin: 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+button.action {
+    background-color: green;
+    color: white;
+}
+
+button.action1 {
+    background-color: red;
+    color: white;
+}
+
+.equal {
+    font-size: 20px;
+    color: green;
+}
+
+button:hover,
+button.equal:hover {
+    background-color: #444;
+    transition: background-color 0.3s ease;
+}
+
+.SButton {
+    margin-top: 5%;
+    display: none;
+}
+
+.form-box {
+    border-radius: 8px;
+    width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 1px solid #555;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.form-box h2 {
+    color: white;
+    margin: 0;
+    padding: 10px;
+    background: #555;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.form-box form {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-box form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-box form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-box form button,
+.form-box form .SButton {
+    width: 50%;
+    background-color: #555;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.form-box form .SButton {
+    margin-top: 5%;
+    margin-bottom: 0;
+    display: none;
+}
+
+.form-box form button:hover,
+.form-box form .SButton:hover {
+    background-color: #333;
+}
+.memberName{
+    display: none;
+}
