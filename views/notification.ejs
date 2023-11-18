@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/notification.css">
+    <link rel="stylesheet" href="/css/notification.css">
 </head>
 <body>
-
+    <%- include('partials/nav.ejs') %>
 <table>
     <thead>
         <tr>
@@ -15,13 +15,24 @@
         </tr>
     </thead>
     <tbody>
+        <% remainder.forEach((i)=> {  %>
         <tr>
-            <td>Your purpose here</td>
+            <td><%= i.Friendname %> remainds you to settle your dept in <%= i.groupname %> group </td>
             <td>
-                <button class="button button-green" onclick="handleAction1()">Action 1</button>
-                <button class="button button-red" onclick="handleAction2()">Action 2</button>
+                <a class="button button-green" href="/notifications/remove1?groupname=<%= i.groupname %>&Friendname=<%=i.Friendname%>" >go</a>   
             </td>
         </tr>
+        <% }) %>
+        <% settle.forEach((i)=>{ %>
+        <tr>
+
+            <td>confirm for the amount you recieved form <%= i.Friendname %> for the payments in  <%= i.groupname %> group</td>
+            <td>
+                <a class="button button-green" >confirm</a>
+                <a class="button button-red">reject</a>
+            </td>
+        </tr>
+        <% }) %>
     </tbody>
 </table>
 <script src="../assets/js/notification.js"></script>

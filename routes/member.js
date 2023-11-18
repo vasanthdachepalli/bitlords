@@ -75,4 +75,31 @@ Router.post('/makeTransaction',require('../controllers/grouptransactionadder'),r
 
     res.redirect('/member?groupname='+req.query.groupname)
 })
+
+const remainder = require('../models/remainderForPayments');
+const remainder1 = require('../models/settlementforpayments');
+Router.post('/addRemainder',async function(req,res){
+    const doc = await user_base.findOne({tag:req.user.username});
+   const count = await remainder.countDocuments({tag:req.body.friend_tag,Friendname:doc.display_Name,groupname:req.body.groupname});
+   if(count == 0){
+    remainder.create({tag:req.query.tag,Friendname:doc.display_Name,groupname:req.query.groupname});
+   }
+
+    res.redirect('/member?groupname='+req.query.groupname)
+})
+Router.post('/addRemainder1',async function(req,res){
+    const doc = await user_base.findOne({tag:req.user.username});
+   const count = await remainder1.countDocuments({tag:req.body.friend_tag,Friendname:doc.display_Name,groupname:req.body.groupname});
+   if(count == 0){
+    remainder1.create({tag:req.query.tag,
+        Friendname:doc.display_Name,
+        Friend_tag:doc.tag,
+        groupname:req.query.groupname
+    });
+   }
+
+    res.redirect('/member?groupname='+req.query.groupname)
+})
+
+
 module.exports = Router;
