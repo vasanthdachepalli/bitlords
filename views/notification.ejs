@@ -28,8 +28,8 @@
 
             <td>confirm for the amount you recieved form <%= i.Friendname %> for the payments in  <%= i.groupname %> group</td>
             <td>
-                <a class="button button-green" >confirm</a>
-                <a class="button button-red">reject</a>
+                <a class="button button-green" href="/notifications/remove2?groupname=<%= i.groupname %>&tag=<%=i.Friend_tag%>">confirm</a>
+                <a class="button button-red" href="/notifications/remove3?groupname=<%= i.groupname %>&tag=<%=i.Friend_tag%>">reject</a>
             </td>
         </tr>
         <% }) %>
