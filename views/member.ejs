@@ -14,20 +14,20 @@
     <div class="container">
         <div class="form-box add-member">
             <h2>Add a member</h2>
-            <form id="myForm" action="/member/addNewMember" method="post">
+            <form id="myForm" action="/member/addNewMember/?groupname=<%=group.Groupname%>" method="post">
                 <label for="inputText">Enter Text:</label>
                 <input type="text" id="inputText" name="member" oninput="remove()" required>
                 <button type="button" onclick="triggerFunction()">Check</button>
-                <input type="submit/?groupname=<%=group.Groupname%>" value="Submit" class="SButton">
+                <input type="submit" value="Submit" class="SButton">
             </form>
         </div>
 
         <div class="split-transaction">
             <div class="form-box">
                 <h2>Split a Transaction</h2>
-                <form id="myForm" method="post" action="/member/makeTransaction">
+                <form id="myForm" method="post" action="/member/makeTransaction/?groupname=<%=group.Groupname%>">
                     <label for="inputText">Enter Total Amount:</label>
-                    <input type="number" class="totalAmount" name="amount" value="0" placeholder="Enter Total Amount" oninput="checker()" required>
+                    <input type="number" class="totalAmount" name="totalAmount" value="0" placeholder="Enter Total Amount" oninput="checker()" required>
                     <button type="button" onclick="splitter()">Split Equally</button>
                     <table>
                         <tr>
@@ -55,16 +55,16 @@
                     <th>Taken</th>
                     <th>Actions</th>
                 </tr>
-                <% for(let i = 0; i < group.members.length ; i++) {%>
+                <% group.members.forEach((i)=>{ %>
 
                 <tr>
-                    <td> <%= group.member[i].friend %> </td>
-                    <td class="given"><%= group.members[i].amount_given %> </td>
-                    <td class="taken"><%= group.members[i].amount_taken  %> </td>
+                    <td> <%= i.friend %> </td>
+                    <td class="given"><%= i.amount_given %> </td>
+                    <td class="taken"><%= i.amount_taken  %> </td>
                     <td><button class="action">Settle</button><button class="action1 ">Remainder</button><button class="equal">✅</button></td>
                 </tr>
 
-                <% } %>
+                <% }) %>
                
             </table>
         </div>

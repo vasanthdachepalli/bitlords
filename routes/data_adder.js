@@ -23,7 +23,7 @@ Router.post('/add',function(req,res){
         email:req.body.email,
         phoneNumber:req.body.phone,
         gender:req.body.gender,
-        display_Name:req.body.username,
+       
         salary:req.body.salary,
         balance:req.body.balance,
         saving:req.body.saving
