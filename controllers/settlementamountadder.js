@@ -9,9 +9,9 @@ const dategenerater = require('../api/dategenerater');
 const paymentdata = require('../models/group_members_data');
 module.exports = async function(req,res,next){
     const docu =await paymentdata.findOne({tag:req.user.username,friend_tag:req.query.tag,Groupname:req.query.groupname});
-
+    console.log(req.query);
     let amount =docu.amount_taken;
-
+   console.log(amount);
 
     category = "others";
 
@@ -45,7 +45,7 @@ module.exports = async function(req,res,next){
         const a1 = parseInt(doc.total ,10)+ parseInt(amount,10);
         const a2 = parseInt(doc[category],10)+ parseInt(amount,10);
      
-        week.findOneAndUpdate({tag:req.user.username,startdate:week1.monday},{total:a1,[category]:a2})
+        weekly.findOneAndUpdate({tag:req.user.username,startdate:week1.monday},{total:a1,[category]:a2})
         .then(()=>{
             console.log("");
         })
@@ -106,6 +106,7 @@ module.exports = async function(req,res,next){
 
    amount = docu.amount_given;
 
+console.log(amount)
 
    
    daily.findOne({tag:req.query.tag,date:dategenerater()})
@@ -136,7 +137,7 @@ module.exports = async function(req,res,next){
        const a1 = parseInt(doc.total ,10)+ parseInt(amount,10);
        const a2 = parseInt(doc[category],10)+ parseInt(amount,10);
     
-       week.findOneAndUpdate({tag:req.query.tag,startdate:week1.monday},{total:a1,[category]:a2})
+       weekly.findOneAndUpdate({tag:req.query.tag,startdate:week1.monday},{total:a1,[category]:a2})
        .then(()=>{
            console.log("");
        })

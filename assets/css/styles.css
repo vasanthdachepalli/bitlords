@@ -128,22 +128,6 @@ form {
     margin-left: 20px; /* Adjust the margin value as needed */
 }
 
-
-
-
-#ul-of-today-Transactions {
-    padding: 0;
-    list-style: none;
-    padding-left: 0;
-    padding-top: 20px;
-}
-
-#name-today-Transactions {
-    padding: 10px 0;
-    text-align: center;
-}
-
-
 .today-Transactions {
     padding: 5px; /* Adjust padding as needed */
     border: 1px solid #ccc;
@@ -160,8 +144,12 @@ form {
     flex-direction: column;
     align-items: center; /* Center the form elements horizontally */
 }
-
-
 .today-Transactions:hover{
     transform:translateY(-5px);
+}
+#Purpose{
+    margin-top: 2vh;
+}
+.adjust {
+    display: flex;
 }

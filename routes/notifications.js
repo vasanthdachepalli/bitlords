@@ -24,7 +24,7 @@ Router.get('/remove2',require('../controllers/settlementamountadder'),require('.
 
 
 })
-Router.get('/remove2',async function(req,res){
+Router.get('/remove3',async function(req,res){
     await remainder2.deleteMany({tag:req.user.username, Friend_tag:req.query.tag,
         groupname:req.query.groupname});
         res.redirect('/member?groupname='+req.query.groupname);

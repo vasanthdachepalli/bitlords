@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Custom Demo</title>
     <link rel="stylesheet" href="css/friends.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 </head>
 
 <body>
@@ -19,12 +20,14 @@
             </div>
             
             <div class="card-body">
+                <div class="change">
                 <ul>
                   <% friend.forEach((i) => { %>    
                     <li><%= i.friend_name%></li>
                  
                     <% }) %>
                 </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -38,8 +41,10 @@
             
             <div class="card-body">
                 <form action="/friend/add" method="post">
+                    <div class="change">
                     <label for="username">displayname:</label>
                     <input type="text" id="username" name="friend" oninput="toggleSubmitButton()" required>
+                     </div>
             
                     <button type="button" onclick="checkUsername()">Check</button>
                     <button type="submit" id="submitButton">Submit</button>
@@ -56,6 +61,7 @@
             </div>
             
             <div class="card-body">
+                <div class="change">
                 <ul>
                     <% friend_req.forEach((i) =>{ %>
                     <li> Request from: <%= i.friend_sender %>   <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=1">Add Friend</a>
@@ -65,6 +71,7 @@
                    
                     <% }) %>
                 </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -74,7 +81,7 @@
 
     <script src="js/friend.js"></script>
   
-
+    <script src="js/darkmode.js" defer></script>
 </body>
 
 </html>

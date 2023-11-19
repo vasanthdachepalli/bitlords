@@ -5,8 +5,9 @@ const transction = new mongoose.Schema({
     name:String,
     date:String,
     category:String,
-    monthnumber:Number,
+    month:String,
+    year:Number,
     type:String
 });
-const model = new mongoose.model("transtion_daily",transction);
+const model = new mongoose.model("transtion_monthly",transction);
 module.exports = model;
