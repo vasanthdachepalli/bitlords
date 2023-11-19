@@ -5,7 +5,13 @@ const month = require('../models/cateregywisemonthly');
 const year = require('../models/cateregywiseyearly');
 const week = require('../models/cateregywiseweekly');
 Router.use("/api",require("../api/visual_api"))
+
+
+Router.get("/opener",function(req,res){
+    res.render('chart');
+});
 Router.get("/",function(req,res){
+   
 daily.find({tag:{ $eq:req.user.username}})
 .then(doc =>{
 month.find({tag:{ $eq:req.user.username}})

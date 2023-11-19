@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Table</title>
+    <link rel="stylesheet" href="/css/member.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+    <%- include('partials/nav.ejs') %>
+    <h1 class="Gname"><%=group.Groupname%></h1>
+    <div class="container">
+        <div class="form-box add-member">
+            <h2>Add a member</h2>
+            <form id="myForm" action="/member/addNewMember/?groupname=<%=group.Groupname%>" method="post">
+                <label for="inputText">Enter Text:</label>
+                <input type="text" id="inputText" name="member" oninput="remove()" required>
+                <button type="button" onclick="triggerFunction()">Check</button>
+                <input type="submit" value="Submit" class="SButton">
+            </form>
+        </div>
+
+        <div class="split-transaction">
+            <div class="form-box">
+                <h2>Split a Transaction</h2>
+                <form id="myForm" method="post" action="/member/makeTransaction/?groupname=<%=group.Groupname%>">
+                    <label for="inputText">Enter Total Amount:</label>
+                    <input type="number" class="totalAmount" name="totalAmount" value="0" placeholder="Enter Total Amount" oninput="checker()" required>
+                    <button type="button" onclick="splitter()">Split Equally</button>
+                    <table>
+                        <tr>
+                            <th>Member</th>
+                            <th>Amount</th>
+                        </tr>
+                         <% member.forEach((i)=>{ %>
+                        <tr>
+                            
+                            <td> <%= i.display_Name %>  <input type='text' class="memberName" name="memberName"  value= "<%= i.display_Name %>" > </td>
+                            <td><input type="number" class="money" value="0" oninput="checker()" name="amount"   placeholder="Enter Amount"></td>
+
+                        </tr>
+                        <% } )%>
+
+                    </table>
+                    <input class="SButton" type="submit">
+                </form>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Member Name</th>
+                    <th>Given</th>
+                    <th>Taken</th>
+                    <th>Actions</th>
+                </tr>
+                <% group.members.forEach((i)=>{ %>
+
+                <tr>
+                    <td> <%= i.friend %> </td>
+                    <td class="given"><%= i.amount_given %> </td>
+                    <td class="taken"><%= i.amount_taken  %> </td>
+                    <td><form action="/member/addRemainder1?tag=<%=i.friend_tag%>&groupname=<%=group.Groupname%>" method="post"><button class="action">Settle</button></form> <form action="/member/addRemainder?tag=<%=i.friend_tag%>&groupname=<%=group.Groupname%>" method="post"><button type="submit"  class="action1 ">Remainder</button></form><button class="equal">✅</button></td>
+                </tr>
+
+                <% }) %>
+               
+            </table>
+        </div>
+    </div>
+    
+    <script src="/js/member.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 7%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+}
+
+.friend-logo {
+    display: flex;
+    align-items: center;
+}
+
+.friend-logo img {
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 1% 2%;
+    }
+
+    .nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    .friend-logo {
+        margin: 10px 0;
+    }
+}

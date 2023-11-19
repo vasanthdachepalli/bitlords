@@ -4,48 +4,7 @@ body {
     padding: 0;
 }
 
-header {
-    
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 1% 5%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    /* padding-bottom: 20%; */
-}
 
-#logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    padding-left: 50%;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    margin-left: 10%;
-    margin-right: 5%;
-}
-.nav-second{
-    padding-left: 50%;
-}
-.nav-third{
-    padding-left: 50%;
-}
-
-/* nav a:hover {
-    background-color: yellow;
-} */
 
 
 .first-card {
@@ -121,15 +80,6 @@ hr {
 
 button:hover {
     background-color: #2980b9;
-}
-.friend-logo {
-    margin-left: auto; /* Push the friend's logo to the right */
-    margin-right: 10%; /* Add some margin for spacing */
-}
-
-.friend-logo img {
-    width: 40px; 
-    height: 40px; 
 }
 form {
     max-width: 300px;

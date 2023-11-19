@@ -9,24 +9,7 @@
 </head>
 
 <body>
-    <header>
-        <div id="logo">
-            <a href="#">Bit Lords</a>
-        </div>
-        
-        <nav>
-            <a href="/home">Home</a>
-            <a class="nav-second" href="#">Categories</a>
-            <a class="nav-third" href="/visualizer">Charts</a>
-        </nav>
-        <div class="friend-logo">
-            <a href="/friend">
-            <img src="images/add friend.png" alt="Friend's Logo">
-            </a>
-        </div>
-       
-    </header>
-
+    <%- include('partials/nav.ejs') %>
     <section class="first-card">
         <div class="card">
             <div class="card-header">
@@ -38,7 +21,7 @@
             <div class="card-body">
                 <ul>
                   <% friend.forEach((i) => { %>    
-                    <li><%= i.friend_id %></li>
+                    <li><%= i.friend_name%></li>
                  
                     <% }) %>
                 </ul>
@@ -55,8 +38,8 @@
             
             <div class="card-body">
                 <form action="/friend/add" method="post">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" oninput="toggleSubmitButton()" required>
+                    <label for="username">displayname:</label>
+                    <input type="text" id="username" name="friend" oninput="toggleSubmitButton()" required>
             
                     <button type="button" onclick="checkUsername()">Check</button>
                     <button type="submit" id="submitButton">Submit</button>
