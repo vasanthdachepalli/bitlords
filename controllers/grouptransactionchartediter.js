@@ -39,7 +39,7 @@ module.exports = async function(req,res,next){
         category:"others",
         name:"group spitted amount paid you will return some amount after your friends return",
         date: dategenerater(),
-        month:require('../jshelpers/monthnamegenereater')(date.getMonth),
+        month:require('../jshelpers/monthnamegenereater')(date.getMonth()),
         year:date.getFullYear(),
         type:"debit"
     })

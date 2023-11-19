@@ -98,12 +98,14 @@
                 <th >Category</th>
                 <th >Amount</th>
                 <th >Purpose</th>
+                <th> type</th>
             </tr>
             <% item.forEach((i) => { %>
                 <tr>
                     <td><%= i.category %></td>
                     <td><%= i.ammount %></td>
                     <td><%= i.name %></td>
+                    <td><%= i.type %></td>
                 </tr>
             <% }) %>
         </table>

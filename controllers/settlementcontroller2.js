@@ -91,7 +91,7 @@ module.exports = async function(req,res,next){
         category: "cerbited amms",
         name:"settlements",
         date: dategenerater(),
-        month:require('../jshelpers/monthnamegenereater')(date.getMonth),
+        month:require('../jshelpers/monthnamegenereater')(date.getMonth()),
         year:date.getFullYear(),
         type:"crebit"
     })

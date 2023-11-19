@@ -76,7 +76,7 @@ Router.post("/add",require('../controllers/updaterForDMW'),function(req,res){
         category:req.body.category,
         name:req.body.name,
         date: dategenerater(),
-        month:require('../jshelpers/monthnamegenereater')(date.getMonth),
+        month:require('../jshelpers/monthnamegenereater')(date.getMonth()),
         year:date.getFullYear(),
         type:"debit"
     })
@@ -95,13 +95,13 @@ Router.post("/add",require('../controllers/updaterForDMW'),function(req,res){
 
 
 
-Router.post("/add",require('../controllers/updaterForDMW'),function(req,res){
+Router.post("/addcerdit",require('../controllers/updaterForDMW'),function(req,res){
   
 
     salarydata.findOne({tag:{ $eq:req.user.username}})
     .then(doc =>{
        
-        salarydata.findOneAndUpdate({tag:{ $eq:req.user.username}},{balance:(doc.balance + req.body.amount)})
+        salarydata.findOneAndUpdate({tag:{ $eq:req.user.username}},{balance:(parseInt(doc.balance,10) + parseInt(req.body.amount,10))})
         .then(()=>{
             console.log("updated succesfully");
         })
