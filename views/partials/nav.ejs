@@ -11,7 +11,10 @@
             <a href="/groups">Groups</a>
             <a href="/targets">Targets</a>
             <a href="/archives">Archives</a>
-            <a href="/notifications" class="notification">Notifications</a>
+            <div class="notification-wrapper">
+                <a href="/notifications" class="notification">Notifications</a>
+                <i class="bi bi-brightness-high-fill" id="toggleDark"></i>
+            </div>
         </nav>
 
         <div class="friend-logo">
@@ -22,5 +25,16 @@
     </div>
 </header>
 <script>
-    let a = document.getElementsByClassName("notification")[0].style.color = "red";
+    async function checker(){
+        let doc1 =await fetch("/membersDataFecher/counts")
+        let doc = await doc1.json()
+        console.log(doc);
+        if(doc.count == 1){
+           let a = document.getElementsByClassName("notification")[0].style.color = "red";
+        }else{
+            let a = document.getElementsByClassName("notification")[0].style.color = "white"; 
+        }
+    }
+    checker();
+
 </script>

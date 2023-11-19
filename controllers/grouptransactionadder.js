@@ -6,8 +6,14 @@ const yearly = require('../models/cateregywiseyearly');
 const monthgenerator = require('../jshelpers/monthnamegenereater');
 const weekgenereater = require('../jshelpers/weekstartandendgenerater');
 const dategenerater = require('../api/dategenerater');
-module.exports = function(req,res,next){
-    let amount =req.body.amount[0];
+module.exports = async function(req,res,next){
+    const doc1 = await user_base.findOne({tag:req.user.username});
+    let j = 0
+    for(let i = 0; i < req.body.amount.length;i++){
+        if(doc1.display_Name == req.body.memberName[i])
+        j = i;
+    }
+    let amount =req.body.amount[j];
     category = "others"
     daily.findOne({tag:req.user.username,date:dategenerater()})
     .then(doc =>{
@@ -38,7 +44,7 @@ module.exports = function(req,res,next){
         const a1 = parseInt(doc.total ,10)+ parseInt(amount,10);
         const a2 = parseInt(doc[category],10)+ parseInt(amount,10);
      
-        week.findOneAndUpdate({tag:req.user.username,startdate:week1.monday},{total:a1,[category]:a2})
+        weekly.findOneAndUpdate({tag:req.user.username,startdate:week1.monday},{total:a1,[category]:a2})
         .then(()=>{
             console.log("");
         })

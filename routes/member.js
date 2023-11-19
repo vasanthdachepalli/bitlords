@@ -59,10 +59,20 @@ await res.redirect('/member?groupname='+req.query.groupname)
 
 
 Router.post('/makeTransaction',require('../controllers/grouptransactionadder'),require('../controllers/grouptransactionchartediter'),async function(req,res){
-    //console.log(req.body);
-    for(let i = 1; i < req.body.amount.length; i++){
+    console.log(req.body);
+    const doc1 = await user_base.findOne({tag:req.user.username});
+    let j = 0;
+    for(let i = 0; i < req.body.amount.length;i++){
+        if(doc1.display_Name == req.body.memberName[i])
+        j = i;
+    }
+    for(let i = 0; i < req.body.amount.length; i++){
+
+        if(i == j)
+        continue;
+
       const doc = await user_base.findOne({display_Name:req.body.memberName[i]});
-     // console.log(doc);
+   
       await members_data.findOneAndUpdate({tag:req.user.username,friend:doc.display_Name,Groupname:req.query.groupname},{$inc: { amount_given: parseFloat(req.body.amount[i],10) }})
       await members_data.findOneAndUpdate({tag:doc.tag,friend_tag:req.user.username,Groupname:req.query.groupname},{$inc: { amount_taken: parseFloat(req.body.amount[i],10)  }})
      // console.log(await members_data.countDocuments({tag:doc.tag,friend_tag:req.user.username,Groupname:req.query.groupname}))
@@ -78,9 +88,10 @@ Router.post('/makeTransaction',require('../controllers/grouptransactionadder'),r
 
 const remainder = require('../models/remainderForPayments');
 const remainder1 = require('../models/settlementforpayments');
+const { use } = require('passport');
 Router.post('/addRemainder',async function(req,res){
     const doc = await user_base.findOne({tag:req.user.username});
-   const count = await remainder.countDocuments({tag:req.body.friend_tag,Friendname:doc.display_Name,groupname:req.body.groupname});
+   const count = await remainder.countDocuments({tag:req.query.tag,Friendname:doc.display_Name,groupname:req.query.groupname});
    if(count == 0){
     remainder.create({tag:req.query.tag,Friendname:doc.display_Name,groupname:req.query.groupname});
    }
@@ -89,7 +100,7 @@ Router.post('/addRemainder',async function(req,res){
 })
 Router.post('/addRemainder1',async function(req,res){
     const doc = await user_base.findOne({tag:req.user.username});
-   const count = await remainder1.countDocuments({tag:req.body.friend_tag,Friendname:doc.display_Name,groupname:req.body.groupname});
+   const count = await remainder1.countDocuments({tag:req.query.tag,Friendname:doc.display_Name,groupname:req.query.groupname});
    if(count == 0){
     remainder1.create({tag:req.query.tag,
         Friendname:doc.display_Name,

@@ -5,8 +5,10 @@ const transction = new mongoose.Schema({
     name:String,
     date:String,
     category:String,
-    monthnumber:Number,
+    month:Number,
+    startingDate:String,
+    endingDate:String,
     type:String
 });
-const model = new mongoose.model("transtion_daily",transction);
+const model = new mongoose.model("transtion_weekly",transction);
 module.exports = model;

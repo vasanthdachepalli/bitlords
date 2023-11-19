@@ -6,6 +6,7 @@
     <title>Bit Lords</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 </head>
 <body>
  
@@ -29,12 +30,15 @@
             </div>
         </div>
     </div>
+    <div class="adjust">
     <div class="form">
         <form method="post" action="/home/add">
             <h1>Add A Transaction</h1>
-            <label for="Amount">Amount</label>
+            <label for="Amount">Amount :</label>
             <input type="number" name="amount" />
-            
+            <br>
+            <label for="Purpose">Purpose :</label>
+            <input type="text" name="name" id="Purpose">
             <div class="category">
                 <label for="category">Select a Programming category:</label>
                 <select name="category" id="category">
@@ -52,6 +56,20 @@
         </form>
     </div>
     
+    <div class="form">
+        <form method="post" action="/home/addcerdit">
+            <h1>Credited Amount</h1>
+            <label for="Amount">Amount :</label>
+            <input type="number" name="amount" />
+            <br>
+            <label for="Purpose">Purpose :</label>
+            <input type="text" name="name" id="Purpose">
+            <div id="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    </div>
     <div class="chart-container">
         <div class="chart-wrapper">
             <h2>Daily</h2>
@@ -75,17 +93,29 @@
     
     <div class="today-Transactions">
         <h1 id="name-today-Transactions">Today's Transactions</h1>
-        <ul id="ul-of-today-Transactions">
+        <table id="table-of-today-Transactions">
+            <tr>
+                <th >Category</th>
+                <th >Amount</th>
+                <th >Purpose</th>
+            </tr>
             <% item.forEach((i) => { %>
-            <li> amount: <%= i.ammount %>  category: <%=i.category %></li>
+                <tr>
+                    <td><%= i.category %></td>
+                    <td><%= i.ammount %></td>
+                    <td><%= i.name %></td>
+                </tr>
             <% }) %>
-        </ul>
+        </table>
     </div>
+    
     <script src="js/home_week.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/home.js"></script>
     <script src="js/month_home.js"></script>
     <script src="js/year_home.js"></script>
+
+    <script src="js/darkmode.js" defer></script>
     <%- include('partials/foot.ejs') %>
 </body>
 </html>
