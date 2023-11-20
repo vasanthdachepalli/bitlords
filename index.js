@@ -85,6 +85,7 @@ app.get("/auth/google/login",
     })
  
   });
+app.use("/targets",require("./routes/targets"))
 app.use("/notifications",require("./routes/notifications"));
 app.use("/membersDataFecher",require("./api/members_data"));
 app.use("/member",require("./routes/member"))

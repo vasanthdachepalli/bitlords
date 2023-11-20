@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Tracker</title>
+    <link rel="stylesheet" href="/css/targets.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+</head>
+<body>
+ <%- include('partials/nav.ejs') %>
+    <div class="container">
+        <div class="savings-info">
+            <div class="savings-box">
+                <h3>Target</h3>
+                <div class="form">
+                    <form action="/targets/add" method="post">
+                    <label for="target">Enter Target:</label>
+                    <input type="text" id="targetInput" name="target">
+                    <br>
+                    <label for="amount">Enter Amount:</label>
+                    <input type="number" id="targetAmount" name="amount">
+                    <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="savings-box">
+                <h3>Current Savings</h3>
+                <p id="currentSavings"> <%= user.saving %></p>
+                <h3>More Savings Required</h3>
+                <p id="moreSavingsRequired">
+                    <% if((user.savingNeed - user.saving) < 0){ %>
+                        0 <%} 
+                        else{ %>
+                            <%= (user.savingNeed - user.saving) %>
+                            <% } %></p>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Target</th>
+                    <th>Current Savings</th>
+                    <th>More Savings Required</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% user.targets.forEach((i)=>{ %>
+                <tr>
+                    <td><%= i.targetName %></td>
+                    <td><%= i.targetAmount %></td>
+                    <td><% if((i.targetAmount - user.saving) < 0){ %>
+                        0 <%} 
+                        else{ %>
+                            <%= (i.targetAmount - user.saving) %>
+                            <% } %>
+                    </td>
+                    <td>buttons not designed still</td>
+                </tr>
+                <% }) %>
+               
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="js/darkmode.js" defer></script>
+</body>
+</html>

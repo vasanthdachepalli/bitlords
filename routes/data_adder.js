@@ -15,6 +15,12 @@ Router.get('/',function(req,res){
     saving:1000,
     monthnumber:date.getMonth()
    })
+   const data = require('../models/user_savings');
+   data.create({
+    tag:req.user.username,
+    saving:0,
+    savingNeed:0
+})
    res.render('data')
 })
 
