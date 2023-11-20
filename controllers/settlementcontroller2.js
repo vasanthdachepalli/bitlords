@@ -5,7 +5,7 @@ const user_base = require('../models/userdata')
 module.exports = async function(req,res,next){
     const docu =await paymentdata.findOne({tag:req.user.username,friend_tag:req.query.tag,Groupname:req.query.groupname});
 
-    let amount =-1 * parseInt(docu.amount_given,10);
+    let amount =-1 *(parseInt(docu.amount_given,10) - parseInt(docu.amount_taken,10));
    await user_base.findOneAndUpdate({tag:req.query.tag},{$inc :{balance:amount}});
    let amount1 = parseInt(docu.amount_given,10) - parseInt(docu.amount_taken,10);
    await user_base.findOneAndUpdate({tag:req.user.username},{$inc :{balance:amount1}});
@@ -13,7 +13,7 @@ module.exports = async function(req,res,next){
    const date = new Date();
    transdaily.create({
     tag:req.query.tag,
-    ammount:docu.amount_given,
+    ammount:amount,
     name:"settlement ammount",
     date:dategenerater(),
     category:"others",
@@ -29,7 +29,7 @@ module.exports = async function(req,res,next){
     const weekdate = require('../jshelpers/weekstartandendgenerater')(date);
     weekly.create({
         tag:req.query.tag,
-        ammount:docu.amount_given,
+        ammount:amount,
         category:req.body.category,
         name:"settlement ammount",
         date: dategenerater(),
@@ -40,7 +40,7 @@ module.exports = async function(req,res,next){
     })
     monthly.create({
         tag:req.query.tag,
-        ammount:docu.amount_given,
+        ammount:amount,
         category:req.body.category,
         name:"settlement ammount",
         date: dategenerater(),
@@ -50,7 +50,7 @@ module.exports = async function(req,res,next){
     })
     yearly.create({
         tag:req.query.tag,
-        ammount:docu.amount_given,
+        ammount:amount,
         category:req.body.category,
         name:"settlement ammount",
         date: dategenerater(),
@@ -112,4 +112,6 @@ module.exports = async function(req,res,next){
    await paymentdata.findOneAndUpdate({tag:req.user.username,friend_tag:req.query.tag,Groupname:req.query.groupname},{amount_given:0,amount_taken:0})
    await paymentdata.findOneAndUpdate({tag:req.query.tag,friend_tag:req.user.username,Groupname:req.query.groupname},{amount_given:0,amount_taken:0})
    next()
+
+   
 }
