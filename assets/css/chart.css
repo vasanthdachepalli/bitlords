@@ -1,51 +1,4 @@
-header {
-    
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 1% 5%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    /* padding-bottom: 20%; */
-}
-
-#logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    padding-left: 50%;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    margin-left: 10%;
-    margin-right: 5%;
-}
-.nav-second{
-    padding-left: 50%;
-}
-.nav-third{
-    padding-left: 50%;
-}
-
-.friend-logo {
-    margin-left: auto; /* Push the friend's logo to the right */
-    margin-right: 10%; /* Add some margin for spacing */
-}
-
-.friend-logo img {
-    width: 40px; 
-    height: 40px; 
-}
+/* Container Styles */
 .main-container {
     max-width: 800px;
     margin: auto;
@@ -53,21 +6,25 @@ nav a {
     margin-top: 80px;
 }
 
+/* Title Styles */
 .main-title {
     color: #007bff;
     font-size: 2em;
 }
 
+/* Subtitle Styles */
 .main-subtitle {
     margin-bottom: 30px;
     font-size: 1.2em;
     color: #6c757d;
 }
 
+/* Main Content Styles */
 .main-content {
     margin-bottom: 40px;
 }
 
+/* Feature Box Styles */
 .main-feature {
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
@@ -78,10 +35,12 @@ nav a {
     transition: box-shadow 0.3s ease;
 }
 
+/* Feature Box Hover Styles */
 .main-feature:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Feature Box Title Styles */
 .main-feature strong {
     display: block;
     margin-bottom: 10px;
@@ -89,6 +48,7 @@ nav a {
     color: #007bff;
 }
 
+/* Button Styles */
 .main-button {
     display: inline-block;
     padding: 15px 30px;
@@ -101,14 +61,18 @@ nav a {
     margin-top: 15px; /* Add space above the button */
 }
 
+/* Button Hover Styles */
 .main-button:hover {
     background-color: #0056b3;
 }
 
+/* Call to Action Styles */
 .main-call-to-action {
     font-size: 1.1em;
     color: #6c757d;
 }
+
+/* Rocket Animation Keyframes */
 @keyframes flyAwayAnimation {
     0% {
         transform: translateY(0) rotate(0deg);
@@ -124,20 +88,24 @@ nav a {
     }
 }
 
+/* Rocket Paragraph Styles */
 #rocket-para {
     display: flex;
     align-items: center;
 }
 
+/* Rocket Icon Styles */
 #rocket {
     margin-left: 5px; /* Adjust the margin as needed */
     cursor: pointer;
 }
 
+/* Flying Away Animation */
 #rocket.fly-away {
     animation: flyAwayAnimation 6s ease-in-out forwards;
 }
 
+/* Returning Animation */
 #rocket.return-rocket {
     animation: returnAnimation 2s ease-in-out forwards;
     animation-delay: 2s; /* Adjust the delay for the return */

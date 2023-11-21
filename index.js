@@ -39,7 +39,7 @@ app.use(session({
   
   app.use(passport.initialize());
   app.use(passport.session());
-  mongoose.connect("mongodb+srv://vasanthdachepalli:Vasanth@bitlords-db.w4uecqp.mongodb.net/?retryWrites=true&w=majority");
+  mongoose.connect("mongodb://127.0.0.1:27017/bitlords", {useNewUrlParser: true});
   passport.use(User.createStrategy());
   passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -85,8 +85,9 @@ app.get("/auth/google/login",
     })
  
   });
-
-
+  
+app.use("/member",require("./routes/member"))
+app.use("/groups",require("./routes/groups"));
 app.use("/data",require("./routes/data_adder"));
 app.use("/api2",require("./api/friend_api"));
 app.use("/friend",require("./routes/friend"));

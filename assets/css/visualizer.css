@@ -1,74 +1,38 @@
+
+/* Using Arial font throughout the page with no extra space around the edges. */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-header {
-    
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 1% 5%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    /* padding-bottom: 20%; */
-}
 
-#logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    padding-left: 50%;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    margin-left: 10%;
-    margin-right: 5%;
-}
-.nav-second{
-    padding-left: 50%;
-}
-.nav-third{
-    padding-left: 50%;
-}
-
-
-nav a:hover {
-    background-color: yellow;
-}
-
+/* Position Right Content */
 .right-content {
-    margin-left: auto; /* This will push it to the rightmost side */
+    margin-left: auto;
 }
 
 .first-card {
-    padding-top: 20%;
-    padding: 2%;
-    padding-top: 10%;
-}
-.second-card{
-    padding: 2%; 
-}
-.third-card{
-    padding: 2%;
+    
+    padding: 2%; /* General padding for the first card */
+    padding-top: 10%; 
 }
 
+.second-card {
+    padding: 2%; /* Padding for the second card */
+}
+
+.third-card {
+    padding: 2%; /* Padding for the third card */
+}
+
+/* Styling for Boxes (Cards) */
 .card {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 2%;
 }
 
+/* Design for Card Headers */
 .card-header {
     background-color: #333f;
     color: white;
@@ -80,6 +44,7 @@ nav a:hover {
     padding: 2%;
 }
 
+/* Alignment for Header Elements */
 .header-left,
 .header-right,
 .header-center {
@@ -87,25 +52,30 @@ nav a:hover {
     align-items: center;
 }
 
+/* Spacing for Labels */
 .label-margin {
     margin-right: 2%;
 }
 
+/* Adjustment for Dropdowns and Buttons */
 select,
 button {
     margin-left: 2%;
 }
 
+/* Separating Sections */
 hr {
     margin: 1% 0;
 }
 
+/* Content Style within Cards */
 .card-body {
     text-align: center;
 }
 
+/* Styling for Buttons */
 .button {
-    width: 100px; /* Adjusted width for increased size */
+    width: 100px; /* Adjusted width for larger size */
     height: 40px;
     padding: 1% 2%;
     cursor: pointer;
@@ -116,19 +86,12 @@ hr {
     transition: background-color 0.3s ease;
 }
 
+/* Hover Effect for Buttons */
 button:hover {
     background-color: #2980b9;
 }
 
+/* Chart Styling (Not currently applied) */
 #myPieChart_daily {
-  height: 20%;
-}
-.friend-logo {
-    margin-left: auto; /* Push the friend's logo to the right */
-    margin-right: 10%; /* Add some margin for spacing */
-}
-
-.friend-logo img {
-    width: 40px; 
-    height: 40px; 
+    height: 20%;
 }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Table</title>
+    <link rel="stylesheet" href="/css/member.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+    <%- include('partials/nav.ejs') %>
+    <h1 class="Gname">Group</h1>
+    <div class="container">
+        <div class="form-box add-member">
+            <h2>Add a member</h2>
+            <form id="myForm" action="/member/addNewMember" method="post">
+                <label for="inputText">Enter Text:</label>
+                <input type="text" id="inputText" name="member" required>
+                <button type="button" onclick="triggerFunction()">Check</button>
+                <input type="submit" value="Submit" class="SButton">
+            </form>
+        </div>
+
+        <div class="split-transaction">
+            <div class="form-box">
+                <h2>Split a Transaction</h2>
+                <form id="myForm" method="post" action="/member/makeTransaction">
+                    <label for="inputText">Enter Total Amount:</label>
+                    <input type="number" class="totalAmount" name="amount" value="0" placeholder="Enter Total Amount" oninput="checker()" required>
+                    <button type="button" onclick="splitter()">Split Equally</button>
+                    <table>
+                        <tr>
+                            <th>Member</th>
+                            <th>Amount</th>
+                        </tr>
+                         <% member.forEach((i)=>{ %>
+                        <tr>
+                            
+                            <td> <%= i.display_Name %>  <input type='text' class="memberName" name="memberName"  value= "<%= i.display_Name %>" > </td>
+                            <td><input type="number" class="money" value="0" oninput="checker()" name="amount"   placeholder="Enter Amount"></td>
+
+                        </tr>
+                        <% } )%>
+
+                    </table>
+                    <input class="SButton" type="submit">
+                </form>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Member Name</th>
+                    <th>Given</th>
+                    <th>Taken</th>
+                    <th>Actions</th>
+                </tr>
+                <% for(let i = 0; i < group.members.length ; i++) {%>
+
+                <tr>
+                    <td> <%= group.member[i].friend %> </td>
+                    <td class="given"><%= group.members[i].amount_given %> </td>
+                    <td class="taken"><%= group.members[i].amount_taken  %> </td>
+                    <td><button class="action">Settle</button><button class="action1 ">Remainder</button><button class="equal">✅</button></td>
+                </tr>
+
+                <% } %>
+               
+            </table>
+        </div>
+    </div>
+    
+    <script src="/js/member.js"></script>
+</body>
+
+</html>

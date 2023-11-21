@@ -11,7 +11,7 @@ Router.get("/opener",function(req,res){
     res.render('chart');
 });
 Router.get("/",function(req,res){
-    console.log(req.query);
+   
 daily.find({tag:{ $eq:req.user.username}})
 .then(doc =>{
 month.find({tag:{ $eq:req.user.username}})

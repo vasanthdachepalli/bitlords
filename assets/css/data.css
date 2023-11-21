@@ -1,3 +1,4 @@
+/* Font Import and Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -7,6 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Body and Wrapper Styles */
 body {
     display: flex;
     justify-content: center;
@@ -22,6 +24,7 @@ body {
     height: 600px;
 }
 
+/* Form Wrapper Styles */
 .form-wrapper {
     position: absolute;
     top: 50%;
@@ -36,6 +39,7 @@ body {
     border: 2px solid #555; /* Thicker border */
 }
 
+/* Heading Styles */
 h2 {
     font-size: 36px;
     color: #333;
@@ -43,11 +47,13 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* Input Group Styles */
 .input-group {
     position: relative;
     margin: 20px 0;
 }
 
+/* Radio Button Styles */
 .input-group label {
     position: absolute;
     top: 50%;
@@ -109,6 +115,7 @@ h2 {
     border-color: #555;
 }
 
+/* Button Styles */
 .btn {
     width: 100%;
     height: 40px;
@@ -126,7 +133,7 @@ h2 {
 .btn:hover {
     background: #444;
 }
-/* Styling for radio buttons */
+/* Radio Button Group Styles */
 .radio {
     display: flex;
     align-items: center;

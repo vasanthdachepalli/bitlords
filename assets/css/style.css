@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Setting base styles for all elements */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Body Styles */
 body {
     display: flex;
     justify-content: center;
@@ -16,12 +18,14 @@ body {
     background: url('../images/background.jpeg') center/cover no-repeat;
 }
 
+/* Main Wrapper Styles */
 .wrapper {
     position: relative;
     width: 400px;
     height: 600px;
 }
 
+/* Form Wrapper Styles */
 .form-wrapper {
     position: absolute;
     top: 50%;
@@ -35,6 +39,7 @@ body {
     border: 2px solid #555; /* Thicker border */
 }
 
+/* Heading Styles */
 h2 {
     font-size: 36px;
     color: #333;
@@ -42,6 +47,7 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* Input Group Styles */
 .input-group {
     position: relative;
     margin: 20px 0;
@@ -72,6 +78,7 @@ h2 {
     transition: 0.3s;
 }
 
+/* Input Focus and Validation Styles */
 .input-group input:focus,
 .input-group input:valid {
     border-color: #e91e63;
@@ -84,6 +91,7 @@ h2 {
     color: #e91e63;
 }
 
+/* Button Styles */
 .btn {
     width: 100%;
     height: 40px;
@@ -102,6 +110,7 @@ h2 {
     background: #444;
 }
 
+/* Signup Link Styles */
 .sign-link {
     font-size: 16px;
     text-align: center;
@@ -122,6 +131,7 @@ h2 {
     text-decoration: underline;
 }
 
+/* Google Login Link Styles */
 .google-link {
     display: flex;
     align-items: center;

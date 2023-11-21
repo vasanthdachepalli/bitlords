@@ -1,53 +1,11 @@
+/* Body Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-header {
-    
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 1% 5%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    /* padding-bottom: 20%; */
-}
-
-#logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5em;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    padding-left: 50%;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    margin-left: 10%;
-    margin-right: 5%;
-}
-.nav-second{
-    padding-left: 50%;
-}
-.nav-third{
-    padding-left: 50%;
-}
-
-/* nav a:hover {
-    background-color: yellow;
-} */
-
-
+/* Styles for First Card */
 .first-card {
     padding-top: 20%;
     padding: 2%;
@@ -55,14 +13,19 @@ nav a {
     padding-left: 20%;
    
 }
+
+/* Styles for Second Card */
 .second-card{
     padding: 2%;
     padding-left: 20%; 
 }
+
+/* Styles for Third Card */
 .third-card{
     padding: 2%;
 }
 
+/* Card Styles */
 .card {
     border: 3px solid #ccc;
     border-radius: 5px;
@@ -74,6 +37,7 @@ box-shadow: 5px 3px 3px 0px black;
    
 }
 
+/* Card Header Styles */
 .card-header {
     background-color: #333f;
     color: white;
@@ -85,6 +49,7 @@ box-shadow: 5px 3px 3px 0px black;
     padding: 2%;
 }
 
+/* Header Sections Styles */
 .header-left,
 .header-right,
 .header-center {
@@ -92,21 +57,23 @@ box-shadow: 5px 3px 3px 0px black;
     align-items: center;
 }
 
+/* Label Margin Styles */
 .label-margin {
     margin-right: 2%;
 }
 
+/* Select and Button Margin Styles */
 select,
 button {
     margin-left: 2%;
 }
 
+/* Horizontal Line Margin Styles */
 hr {
     margin: 1% 0;
 }
 
-
-
+/* Button Styles */
 .button {
     width: 100px; /* Adjusted width for increased size */
     height: 40px;
@@ -119,28 +86,23 @@ hr {
     transition: background-color 0.3s ease;
 }
 
+/* Button Hover Styles */
 button:hover {
     background-color: #2980b9;
 }
-.friend-logo {
-    margin-left: auto; /* Push the friend's logo to the right */
-    margin-right: 10%; /* Add some margin for spacing */
-}
-
-.friend-logo img {
-    width: 40px; 
-    height: 40px; 
-}
+/* Form Styles */
 form {
     max-width: 300px;
     margin: 0 auto;
 }
 
+/* Label Styles */
 label {
     display: block;
     margin-bottom: 8px;
 }
 
+/* Input Styles */
 input {
     width: 100%;
     padding: 8px;
@@ -148,6 +110,7 @@ input {
     box-sizing: border-box;
 }
 
+/* Additional Button Styles */
 button {
     display: inline-block;
     padding: 8px 16px;
@@ -159,6 +122,7 @@ button {
     margin-right: 8px;
 }
 
+/* Additional Button Hover Styles */
 button:hover {
     background-color: #2980b9;
 }
