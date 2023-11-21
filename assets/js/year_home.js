@@ -19,7 +19,11 @@ fetch('api/year/?year='+year)
                      data: values,
                      backgroundColor: ['red', 'blue', 'green', 'yellow','black'], // Customize colors
                  }]
-             },
+             },options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set this to false to define your own chart size
+                height: 400, // Define the height
+            }
          });
      })
      .catch(error => {

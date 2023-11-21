@@ -4,7 +4,8 @@ const yearly = require('../models/cateregywiseyearly');
 const date = new Date();
 const dategenerater = require('../api/dategenerater');
 const monthgenerator = require('../jshelpers/monthnamegenereater');
-
+const weekgenerater = require('../jshelpers/weekstartandendgenerater');
+const week = require('../models/cateregywiseweekly');
 module.exports = function(req,res,next){
     user.findOne({tag:req.user.username,date:dategenerater()})
     .then(doc =>{
@@ -26,8 +27,30 @@ module.exports = function(req,res,next){
     .catch(err =>{
      console.log(err);
     })
-
-
+    
+    const week1 = weekgenerater(date)
+   
+    week.findOne({tag:req.user.username,startdate:week1.monday})
+    .then(doc =>{
+        
+        console.log(doc);
+        category = req.body.category;
+        
+        const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);
+        const a2 = parseInt(doc[category],10)+ parseInt(req.body.amount,10);
+     
+        week.findOneAndUpdate({tag:req.user.username,startdate:week1.monday},{total:a1,[category]:a2})
+        .then(()=>{
+            console.log("");
+        })
+        .catch(err =>{
+            console.log(err);
+           })
+    
+       })
+       .catch(err =>{
+        console.log(err);
+       })
 
     monthly.findOne({tag:req.user.username,month:monthgenerator(date.getMonth())})
     .then(doc =>{
@@ -53,7 +76,7 @@ module.exports = function(req,res,next){
 
  yearly.findOne({tag:req.user.username,year:date.getFullYear()})
    .then(doc =>{
-    console.log(doc);
+    
     category = req.body.category;
     
     const a1 = parseInt(doc.total ,10)+ parseInt(req.body.amount,10);

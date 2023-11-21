@@ -1,0 +1,189 @@
+/* Crypto Styles */
+
+header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Styles */
+#logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+/* Navigation Wrapper Styles */
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 7%;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation Links Styles */
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+}
+
+/* Friend Logo Styles */
+.friend-logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Friend Logo Image Styles */
+.friend-logo img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Media Query for Responsive Design (Max-width: 768px) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 1% 2%;
+    }
+
+    .nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    .friend-logo {
+        margin: 10px 0;
+    }
+}
+
+/* Card Styles */
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    
+}
+
+.first-card, .second-card {
+    width: calc(50% - 10px);
+}
+
+.card {
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    box-shadow: 5px 3px 3px 0px black;
+}
+
+.card-header {
+    background-color: #333f;
+    color: white;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1%;
+    padding: 2%;
+}
+
+.header-left,
+.header-right,
+.header-center {
+    display: flex;
+    align-items: center;
+}
+
+.label-margin {
+    margin-right: 2%;
+}
+
+select,
+button {
+    margin-left: 2%;
+}
+
+hr {
+    margin: 1% 0;
+}
+
+.card-body {
+    text-align: center; 
+    margin-bottom: 5%;
+}
+
+.first-card {
+    padding-top: 2%;
+}
+.second-card{
+    padding-top: 2%;
+}
+ul {
+    padding-left: 22%;
+    list-style: none;
+    max-width: 200px;
+  }
+  
+  li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  li:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  .ticker{
+    padding-top: 70px;
+   
+  }
+  .search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+.chart-container,.stock-chart-container{
+    margin-left: 10%;
+    height: 550px;
+    width: 80%;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    box-shadow: 5px 3px 3px 0px black;
+
+}

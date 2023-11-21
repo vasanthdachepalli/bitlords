@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Splitter</title>
+  <link rel="stylesheet" href="css/gruops.css">
+</head>
+<body>
+  <%- include('partials/nav.ejs') %>
+
+  <main>
+    <section class="first-card">
+      <div class="card">
+        <div class="card-header">
+          <div class="header-left">
+            <label for="date">Create Group</label>
+          </div>
+        </div>
+        <div class="card-body">
+          <form id="groupForm" action="/groups/addgroup" method="post">
+            <div class="form-group">
+              <label for="groupName">Group Name:</label>
+              <input type="text" id="groupName" name="groupname" required>
+            </div>
+            <div class="form-group" id="create-gruop-button">
+              <button type="submit" class="button">Create</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="groupsList" class="second-card">
+      <div class="card">
+        <div class="card-header">
+          <div class="header-left">
+            <label for="date">Groups</label>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <% group.forEach((i) => { %>
+              <li><a href="/member?groupname=<%= i.Groupname %>"><%= i.Groupname %></a></li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%- include('partials/foot.ejs') %>
+  <script src="script.js"></script>
+</body>
+</html>

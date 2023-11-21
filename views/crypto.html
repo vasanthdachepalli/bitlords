@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto</title>
+    <link rel="stylesheet" href="crypto.css"> 
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+    
+</head>
+<body>
+     <header>
+        <div id="logo">
+            <a href="#">Bit Lords</a>
+        </div>
+    
+        <div class="nav-wrapper">
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/visualizer">Charts</a>
+                <a href="/groups">Groups</a>
+                <a href="/targets">Targets</a>
+                <a href="/archives">Archives</a>
+                <a href="/notifications">Notifications</a>
+            </nav>
+    
+            <div class="friend-logo">
+                <a href="/friend">
+                    <img src="add friend.png" alt="Friend's Logo">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="ticker">
+        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,825,1839,52,20650,5426,2010,74,1799,1958,5805,3890,1975,6636,4943,2,5994,512" currency="INR" theme="dark" transparent="false" show-symbol-logo="true"></div>
+
+    </div>
+    <div class="cards">
+        <section class="first-card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <label for="date">Add a New Crypto</label>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="search-container">
+                        <label for="coin-name">Enter Company Name:</label>
+                        <input type="text" id="crypto-name" placeholder="Search cryptocurrencies...">
+                        <button onclick="searchCrypto()">Get Symbol</button>
+                        <p id="crypto-symbol-result"></p>
+                        <label for="coin-name">Enter Stock Symbol:</label>
+                        <input type="text" id="crypto-search-1" list="crypto-options-1" placeholder="Search cryptocurrencies...">
+                           <button >Add to watch list</button>
+                    </div>
+                    <div id="crypto-results">
+                        <!-- Results will be displayed here -->
+                    </div>
+                        
+                </div>
+            </div>
+        </section>
+        <section class="second-card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <label for="date">Add a New Crypto</label>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="search-container">
+                        <label for="coin-name">Enter Company Name:</label>
+                        <input type="text" id="companyName" placeholder="Enter company name">
+                         <button onclick="fetchSymbol()">Get Symbol</button>
+                         <p id="symbolResult"></p>
+                        <label for="coin-name">Enter Stock Symbol:</label>
+                        <input type="text" id="crypto-search-1" list="crypto-options-1" placeholder="Search cryptocurrencies...">
+                           <button >Add to watch list</button>
+                    </div>
+                    <div id="crypto-results">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="cards">
+        <section class="first-card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <label for="date">Your Watchlist Crypto </label>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <ul>
+                        <li onclick="handleItemCryptoClick(this)">BTC</li>
+                    
+                    <li onclick="handleItemCryptoClick(this)">DOGE</li>
+                    <li onclick="handleItemCryptoClick(this)">TRX</li>
+                    
+                    </ul>
+                    
+            </div>
+        </section>
+        <section class="second-card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <label for="date">Your Watchlist Stocks</label>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <ul>
+                    <li onclick="handleItemStockClick(this)">INFY</li>
+                    <li onclick="handleItemStockClick(this)">IBM</li>
+                    <li onclick="handleItemStockClick(this)">RELIANCE.BSE</li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div>
+        
+            <!-- <h1>Cryptocurrency Price Chart</h1>
+            <div>
+                <label for="coinSymbol">Enter Coin Symbol:</label>
+                <input type="text" id="coinSymbol" placeholder="e.g.,BTC" value="BTC">
+                <button onclick="loadcryptoChart()">Load Chart</button>
+            </div>
+
+            <div>
+                <label for="stockSymbol">Enter Stock Symbol:</label>
+                <input type="text" id="stockSymbol" placeholder="e.g., INFY">
+                <button onclick="loadstockChart()">Load Stock Chart</button>
+            </div> -->
+            
+            <div class="chart-container" id="tv_chart_container" style="display: none;"></div>
+            <div class="stock-chart-container" id="stock_tv_chart_container" style="display: none;"></div>
+            <script src="search-crypto.js"></script>
+            <script src="crypto-chart.js"></script>
+            <script src="stock-search-chart.js"></script>
+            
+        
+    </div>
+
+    
+    
+</body>
+
+
+</html>
+
+

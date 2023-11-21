@@ -1,22 +1,22 @@
-
+/* General Styles for the Page Layout */
 body {
     background-color: rgb(192, 183, 183);
     margin: 0;
     padding: 0;
 }
-
+/* Header Section Styles */
 .head {
     height: 100px;
     padding: 20px;
     text-align: center;
 }
-
+/* Container and Content Arrangement Styles */
 .container {
     display: flex;
     justify-content: space-between;
     margin: 20px;
 }
-
+/* Styles for the Content Wrapper */
 .content-wrapper {
     display: flex;
     align-items: center;
@@ -25,6 +25,7 @@ body {
     height: 100%;
 }
 
+/* Styling for Individual Blocks: Salary, Target, and Form */
 .salary,
 .target,
 .form {
@@ -38,7 +39,7 @@ body {
     position: relative;
     border-radius: 10px; /* Add rounded edges to div elements */
 }
-
+/* Specific Styling for 'Form' Block */
 .form {
     padding: 5px; /* Adjust padding as needed */
     border: 1px solid #ccc;
@@ -46,15 +47,15 @@ body {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
     max-width: fit-content; /* Set the width to fit the content */
-    width: auto; /* Allow it to expand to the width of the content */
-    max-height: fit-content; /* Set the height to fit the content */
-    height: auto; /* Allow it to expand to the height of the content */
+    width: auto; 
+    max-height: fit-content; 
+    height: auto; 
     margin: 0 auto; /* Center the form horizontally */
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the form elements horizontally */
 }
-
+/* Paragraph Styling */
 .right-paragraph,
 .left-paragraph {
     margin: 0;
@@ -65,23 +66,26 @@ body {
     margin: 0;
     font-size: 1rem;
 }
-
+/* Hover Effects for Blocks */
 .salary:hover,
 .target:hover,
 .form:hover {
     transform: translateY(-5px);
 }
-
+/* Styles for Forms */
 form {
     text-align: center;
 }
-
+/* Category Styling */
 .category {
     padding-top: 10px;
 }
+
+/* Chart Styles */
 #myPieChart,
 #myPieChart_month,
-#myPieChart_year {
+#myPieChart_year,
+#myPieChart_week {
     width: 300px;
     height: 300px;
     border: 2px solid #000;
@@ -90,6 +94,7 @@ form {
     margin: 10px;
 }
 
+/* Styles for Chart Containers and Wrappers */
 .chart-container {
     padding-top: 8%;
     display: flex;
@@ -130,7 +135,7 @@ form {
 
 
 
-
+/* Styles for Today's Transactions List */
 #ul-of-today-Transactions {
     padding: 0;
     list-style: none;
@@ -145,5 +150,23 @@ form {
 
 
 .today-Transactions {
-    margin-top: 20px; /* Add margin to create space between sections */
+    padding: 5px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    max-width: fit-content; /* Set the width to fit the content */
+    width: auto; 
+    max-height: fit-content; 
+    height: auto; /* Allow it to expand to the height of the content */
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form elements horizontally */
+}
+
+/* Hover Effect for Today's Transactions */
+.today-Transactions:hover{
+    transform:translateY(-5px);
 }

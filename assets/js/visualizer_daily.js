@@ -21,12 +21,18 @@ fetch('api/dailysingle/?date='+document.getElementById("daily_date").value)
          var myPieChart = new Chart(ctx, {
              type: document.getElementById("daily_type").value,
              data: {
+              
                  labels: ['shopping','Entertainment','Medical','Food','others'],
                  datasets: [{
+                    label:'selected daily chart',
                      data: values,
                      backgroundColor: ['red', 'blue', 'green', 'yellow','black'], // Customize colors
                  }]
-             },
+             },options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set this to false to define your own chart size
+                height: 400, // Define the height
+            }
          });
          this._myPieChart_daily = myPieChart;
      })

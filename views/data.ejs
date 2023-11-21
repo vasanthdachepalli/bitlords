@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> signin </title>
+    <link rel="stylesheet" href="/css/data.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="form-wrapper sign-up">
+            <form action="/data/add" method="post">
+                <h2>Enter Your Data</h2>
+                <div class="input-group">
+                    <input type="text" name="username" required>
+                    <label for="">Display Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="Phone" required>
+                    <label for="">Phone Number</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" name="salary" required>
+                    <label for="">Salary</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" name ="saving" required>
+                    <label for="">Savings Target</label>
+                </div>
+                <div class="radio">
+                    <label for="male">
+                        <input type="radio" id="male" name="gender" value="male" required checked>
+                        Male
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="female">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        Female
+                    </label>
+                </div>
+                <button type="submit" class="btn">Confirm</button>
+            </form>
+        </div>
+        
+</body>
+
+</html>

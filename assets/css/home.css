@@ -1,0 +1,49 @@
+/* Resetting Default Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+/* Styling for Sections */
+section {
+    text-align: center;
+    padding: 3em 0;
+}
+
+/* Heading Styles */
+h1 {
+    color: #333;
+}
+
+/* Paragraph Styles */
+p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+/* Landing Image Styles */
+#landing-image{
+    height: 100%;
+    width: 100%;
+}
+/* Image Container Styles */
+.image-container {
+    perspective: 1000px;
+    perspective-origin: 50% 50%; 
+}
+
+/* Image Caption Styles */
+.image-caption {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em; 
+    font-weight: bold; 
+    color: #fff;
+    text-shadow: 10px 10px 18px rgba(0, 0, 0, 0.9);
+}

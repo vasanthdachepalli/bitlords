@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Demo</title>
+    <link rel="stylesheet" href="css/friends.css">
+</head>
+
+<body>
+    <%- include('partials/nav.ejs') %>
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Your Friends</label>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <ul>
+                  <% friend.forEach((i) => { %>    
+                    <li><%= i.friend_name%></li>
+                 
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="second-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Send A Friend Request</label>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <form action="/friend/add" method="post">
+                    <label for="username">displayname:</label>
+                    <input type="text" id="username" name="friend" oninput="toggleSubmitButton()" required>
+            
+                    <button type="button" onclick="checkUsername()">Check</button>
+                    <button type="submit" id="submitButton">Submit</button>
+                </form>           
+            </div>
+        </div>
+    </section>
+    <section class="first-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-left">
+                    <label for="date">Incoming Friend Requests</label>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <ul>
+                    <% friend_req.forEach((i) =>{ %>
+                    <li> Request from: <%= i.friend_sender %>   <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=1">Add Friend</a>
+                        <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=0">reject Friend</a>
+
+                    </li>
+                   
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <%- include('partials/foot.ejs') %>
+
+
+    <script src="js/friend.js"></script>
+  
+
+</body>
+
+</html>

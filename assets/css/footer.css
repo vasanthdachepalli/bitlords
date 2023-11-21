@@ -1,0 +1,10 @@
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 1em 0; /* Padding for top and bottom */
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
