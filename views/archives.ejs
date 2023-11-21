@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="/assets/css/archives.css">
+</head>
+<body>
+    <%- include('partials/nav.ejs') %>
+        <div class="card-header">
+            <!-- Strip for Day -->
+            <div class="strip-container">
+                <div class="strip">
+                    <div class="strip-left">
+                        <label for="day">Day</label>
+                        <select name="day" id="day_select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="strip-right">
+                        <button class="button" onclick="fetchData('day')" type="button">Fetch</button>
+                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                    </div>
+                </div>
+                <!-- Day-specific table -->
+                <table id="day_table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <!-- Add your table body for day here -->
+                    <tbody>
+                        <!-- Day-specific table rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <!-- Strip for Week -->
+            <div class="strip-container">
+                <div class="strip">
+                    <div class="strip-left">
+                        <label for="week">Week</label>
+                        <select name="week" id="week_select">
+                            <option value="">1</option>
+                            <option value="">2</option>
+                        </select>
+                    </div>
+                    <div class="strip-right">
+                        <button class="button" onclick="fetchData('week')" type="button">Fetch</button>
+                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                    </div>
+                </div>
+                <!-- Week-specific table -->
+                <table id="week_table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <!-- Add your table body for week here -->
+                    <tbody>
+                        <!-- Week-specific table rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <!-- Strip for Month -->
+            <div class="strip-container">
+                <div class="strip">
+                    <div class="strip-left">
+                        <label for="month">Month</label>
+                        <select name="month" id="month_select">
+                            <option value="">January</option>
+                            <option value="">February</option>
+                        </select>
+                    </div>
+                    <div class="strip-right">
+                        <button class="button" onclick="fetchData('month')" type="button">Fetch</button>
+                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                    </div>
+                </div>
+                <!-- Month-specific table -->
+                <table id="month_table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <!-- Add your table body for month here -->
+                    <tbody>
+                        <!-- Month-specific table rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+    
+            <!-- Strip for Year -->
+            <div class="strip-container">
+                <div class="strip">
+                    <div class="strip-left">
+                        <label for="year">Year</label>
+                        <select name="year" id="year_select">
+                            <option value="">2022</option>
+                            <option value="">2023</option>
+                        </select>
+                    </div>
+                    <div class="strip-right">
+                        <button class="button" onclick="fetchData('year')" type="button">Fetch</button>
+                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                    </div>
+                </div>
+                <!-- Year-specific table -->
+                <table id="year_table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <!-- Add your table body for year here -->
+                    <tbody>
+                        <!-- Year-specific table rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+</body>
+</html>

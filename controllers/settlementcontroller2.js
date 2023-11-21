@@ -13,7 +13,7 @@ module.exports = async function(req,res,next){
    const date = new Date();
    transdaily.create({
     tag:req.query.tag,
-    ammount:amount,
+    ammount:-1*amount,
     name:"settlement ammount",
     date:dategenerater(),
     category:"others",
@@ -29,7 +29,7 @@ module.exports = async function(req,res,next){
     const weekdate = require('../jshelpers/weekstartandendgenerater')(date);
     weekly.create({
         tag:req.query.tag,
-        ammount:amount,
+        ammount:-1*amount,
         category:req.body.category,
         name:"settlement ammount",
         date: dategenerater(),
@@ -40,7 +40,7 @@ module.exports = async function(req,res,next){
     })
     monthly.create({
         tag:req.query.tag,
-        ammount:amount,
+        ammount:-1*amount,
         category:req.body.category,
         name:"settlement ammount",
         date: dategenerater(),
@@ -50,7 +50,7 @@ module.exports = async function(req,res,next){
     })
     yearly.create({
         tag:req.query.tag,
-        ammount:amount,
+        ammount:-1*amount,
         category:req.body.category,
         name:"settlement ammount",
         date: dategenerater(),

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,31 +41,36 @@
             <thead>
                 <tr>
                     <th>Target</th>
-                    <th>Current Savings</th>
+                    <th>Amount Required</th>
                     <th>More Savings Required</th>
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <% user.targets.forEach((i)=>{ %>
-                <tr>
-                    <td><%= i.targetName %></td>
-                    <td><%= i.targetAmount %></td>
-                    <td><% if((i.targetAmount - user.saving) < 0){ %>
-                        0 <%} 
-                        else{ %>
-                            <%= (i.targetAmount - user.saving) %>
-                            <% } %>
-                    </td>
-                    <td>buttons not designed still</td>
-                </tr>
-                <% }) %>
-               
-            </tbody>
+                <tbody>
+                    <% user.targets.forEach((i) => { %>
+                        <tr>
+                            <td><%= i.targetName %></td>
+                            <td><%= i.targetAmount %></td>
+                            <td class="targeting">
+                                <% if ((i.targetAmount - user.saving) < 0) { %>
+                                    0
+                                <% } else { %>
+                                    <%= (i.targetAmount - user.saving) %>
+                                <% } %>
+                            </td>
+                            <td>
+                                <a href="#" class="button_1">&#10004; Proceed</a>
+                                <a href="#" class="button_2">&#10008; Remove</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>            
         </table>
     </div>
 
 
     <script src="js/darkmode.js" defer></script>
+    <script src="js/targets.js"></script>
 </body>
 </html>
