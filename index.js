@@ -85,6 +85,11 @@ app.get("/auth/google/login",
     })
  
   });
+
+
+  //didnot do any changes (main routers are here,each router for each page,and different apis
+app.use('/archives',require('./routes/archives'));
+  app.use('/market',require('./routes/market'));
 app.use("/targets",require("./routes/targets"))
 app.use("/notifications",require("./routes/notifications"));
 app.use("/membersDataFecher",require("./api/members_data"));
@@ -97,6 +102,9 @@ app.use("/api1",require("./api/visual_api1"));
 app.use("/api",require("./api/dailysingle"));
 app.use("/home",require('./routes/home'));
 app.use('/loginpage', require('./routes/user'));
+
+
+//end of the main routers
 //app.use('loginpage/login',require('./routes/user'));
 app.get("/register", function(req, res){
     res.render("signin");

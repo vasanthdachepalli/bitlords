@@ -1,9 +1,11 @@
 const transtion_daily = require('../models/transctiondaily');
 const catogerywisedaily =require('../models/catoregywisedaily');
 const date = require('../api/dategenerater');
-const dat1 = new Date();
+
 module.exports = function(req,res,next){
-transtion_daily.deleteMany({date:{$ne : date()}})
+    let dat1 = new Date();
+    let month = require('../jshelpers/monthnamegenereater');
+transtion_daily.deleteMany({monthnumber:{$ne :dat1.getMonth()}})
 .then(()=>{
     console.log('');
 })

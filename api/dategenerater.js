@@ -1,4 +1,5 @@
-const date = new Date();
+
+let date = new Date();
 var options = {
     weekday : "long",
     day : "numeric",

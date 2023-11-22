@@ -145,7 +145,7 @@ Router.post("/addcerdit",require('../controllers/updaterForDMW'),function(req,re
         category: "cerbited amms",
         name:req.body.name,
         date: dategenerater(),
-        month:require('../jshelpers/monthnamegenereater')(date.getMonth),
+        month:require('../jshelpers/monthnamegenereater')(date.getMonth()),
         year:date.getFullYear(),
         type:"crebit"
     })
