@@ -12,9 +12,9 @@ function generatedaily() {
 
     // Create a table element
     var table = document.createElement("table");
-
+    var header = table.createTHead();
     // Create a heading row
-    var headingRow = table.insertRow(0);
+    var headingRow = header.insertRow(0);
 
     // Insert cells into the heading row
     var headingCell1 = headingRow.insertCell(0);
@@ -39,7 +39,7 @@ function generatedaily() {
         
    
     var row = table.insertRow(i);
-
+   
     // Insert cells into the row
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);

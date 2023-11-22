@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const targetSchema = new mongoose.Schema({
  
     targetName:String,
-    targetAmount:Number
+    targetAmount:Number,
+    date:String
 })
 
-const model = new mongoose.model('Target',targetSchema);
+const model = new mongoose.model('TargetAcheived',targetSchema);
 module.exports = model;
