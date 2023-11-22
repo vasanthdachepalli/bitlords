@@ -3,14 +3,16 @@ const monthly = require('../models/cateregywisemonthly');
 const yearly = require('../models/cateregywiseyearly');
 const weekly = require('../models/cateregywiseweekly');
 const weekgenerater = require('../jshelpers/weekstartandendgenerater');
-const date = new Date();
+
 const dategenerater = require('../api/dategenerater');
 const monthgenerator = require('../jshelpers/monthnamegenereater');
-const { count } = require('console');
+
 module.exports = function(req,res,next){
+    const date = new Date();
      const week = weekgenerater(date);
     user.countDocuments({tag:{ $eq:req.user.username},date:{ $eq:dategenerater()}})
     .then(count=>{
+        console.log(count)
       if(count == 0){
           user.create(
               {

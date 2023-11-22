@@ -18,14 +18,14 @@
     <div class="container">
         <div class="salary">
             <div class="content-wrapper">
-                <p class="left-paragraph"><h2>Total Credit Balance: <%= salary %></h2></p>
+                <p class="left-paragraph"><h2>Total Credit Balance: <div id="check1"><%= salary %></div></h2></p>
                 <p class="bottom-paragraph">Your Balance</p>
             </div>
         </div>
         
         <div class="target">
             <div class="content-wrapper">
-                <p class="right-paragraph"><h2>Savings target: <%= saving %> </h2></p>
+                <p class="right-paragraph"><h2>Savings target: <div id="check3"><%= saving %></div> </h2></p>
                 <p class="bottom-paragraph">Your Target</p>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <form method="post" action="/home/add">
             <h1>Add A Transaction</h1>
             <label for="Amount">Amount :</label>
-            <input type="number" name="amount" />
+            <input type="number" name="amount"  id="check2"  oninput="checker1()" />
             <br>
             <label for="Purpose">Purpose :</label>
             <input type="text" name="name" id="Purpose">
@@ -116,6 +116,8 @@
     <script src="js/home.js"></script>
     <script src="js/month_home.js"></script>
     <script src="js/year_home.js"></script>
+
+    <script src="js/home_checker.js"></script>
 
     <script src="js/darkmode.js" defer></script>
     <%- include('partials/foot.ejs') %>
