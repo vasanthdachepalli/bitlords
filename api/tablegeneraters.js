@@ -1,7 +1,7 @@
 const express = require('express');
 const Router = express.Router();
 const daily = require('../models/transctiondaily');
-
+const data = require('../models/userdata');
 Router.get('/daily',(req,res)=>{
 
     daily.find({tag:req.user.username,date:req.query.date})
@@ -34,5 +34,11 @@ Router.get('/yearly',(req,res)=>{
         res.json(data);
     })
 
+})
+Router.get('/data1',(req,res)=>{
+    data.find({tag:req.user.username})
+    .then((data)=>{
+        res.json(data);
+    })
 })
 module.exports = Router;
