@@ -57,8 +57,6 @@ function generatedaily() {
     i++;
     })
    
-
-
   })
   console.log(table);
   container.appendChild(table);

@@ -9,7 +9,7 @@ Router.get("/",require('../controllers/deleter'),require('../controllers/healper
 
 salarydata.findOne({tag: { $eq:req.user.username }})
 .then(doc =>{
-   transtiondata.find({tag: { $eq:req.user.username}})
+   transtiondata.find({tag: { $eq:req.user.username},date: { $eq:dategenerater()}})
    .then(records =>{
     
     res.render('home',{

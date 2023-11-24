@@ -13,6 +13,7 @@ Router.get('/',function(req,res){
             })
         }
     })
+    
     data.findOne({tag:req.user.username})
     .populate('targets')
     .exec()
