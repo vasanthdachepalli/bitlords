@@ -62,15 +62,15 @@
             
             <div class="card-body">
                 <div class="change">
-                <ul>
-                    <% friend_req.forEach((i) =>{ %>
-                    <li> Request from: <%= i.friend_sender %>   <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=1">Add Friend</a>
-                        <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=0">reject Friend</a>
-
-                    </li>
-                   
-                    <% }) %>
-                </ul>
+                    <ul>
+                        <% friend_req.forEach((i) => { %>
+                            <li>
+                                Request from: <%= i.friend_sender %>
+                                <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=1" class="accept-btn">Accept</a>
+                                <a href="/friend/addfriend/?friend=<%= encodeURIComponent(i.friend_sender) %>&type=0" class="reject-btn">Reject</a>
+                            </li>
+                        <% }) %>
+                    </ul>
                 </div>
             </div>
         </div>

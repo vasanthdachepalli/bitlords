@@ -2,6 +2,7 @@ body {
     background-color: rgb(192, 183, 183);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 .head {
@@ -129,14 +130,14 @@ form {
 }
 
 .today-Transactions {
-    padding: 5px; /* Adjust padding as needed */
+    padding: 1% 5% 1% 5%;
     border: 1px solid #ccc;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 4%;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
-    max-width: fit-content; /* Set the width to fit the content */
-    width: auto; /* Allow it to expand to the width of the content */
+    /* max-width: fit-content;  */
+    width: 50%; /* Allow it to expand to the width of the content */
     max-height: fit-content; /* Set the height to fit the content */
     height: auto; /* Allow it to expand to the height of the content */
     margin: 0 auto; /* Center the form horizontally */

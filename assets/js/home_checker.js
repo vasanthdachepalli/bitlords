@@ -12,7 +12,7 @@ function checker1(){
 
     if( a < 0){
         document.getElementById('check2').value = 0;
-        alert("if you want to cerbit the amount ,go for cerbits form ")
+        alert("if you want to credit the amount ,go for cerdits form ")
     }
     
 }

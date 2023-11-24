@@ -9,7 +9,7 @@ Router.get("/",require('../controllers/deleter'),require('../controllers/healper
 
 salarydata.findOne({tag: { $eq:req.user.username }})
 .then(doc =>{
-   transtiondata.find({tag: { $eq:req.user.username}})
+   transtiondata.find({tag: { $eq:req.user.username},date: {$eq:dategenerater()}})
    .then(records =>{
     
     res.render('home',{
@@ -117,11 +117,11 @@ Router.post("/addcerdit",require('../controllers/updaterForDMW'),function(req,re
     transtiondata.create({
         tag:req.user.username,
         ammount:req.body.amount,
-        category:"cerbited amm",
+        category:"credited amm",
         name:req.body.name,
         date: dategenerater(),
         monthnumber:date.getMonth(),
-        type:"crebit"
+        type:"credit"
     })
     const weekly = require('../models/transWeekly');
     const monthly = require('../models/transMonthly');
@@ -131,32 +131,32 @@ Router.post("/addcerdit",require('../controllers/updaterForDMW'),function(req,re
     weekly.create({
         tag:req.user.username,
         ammount:req.body.amount,
-        category:"cerbited amms",
+        category:"credited amms",
         name:req.body.name,
         date: dategenerater(),
         month:date.getMonth(),
         startingDate:weekdate.monday,
         endingDate:weekdate.sunday,
-        type:"crebit"
+        type:"credit"
     })
     monthly.create({
         tag:req.user.username,
         ammount:req.body.amount,
-        category: "cerbited amms",
+        category: "credited amms",
         name:req.body.name,
         date: dategenerater(),
         month:require('../jshelpers/monthnamegenereater')(date.getMonth()),
         year:date.getFullYear(),
-        type:"crebit"
+        type:"credit"
     })
     yearly.create({
         tag:req.user.username,
         ammount:req.body.amount,
-        category:"cerbittsss amms",
+        category:"crebitsss amm",
         name:req.body.name,
         date: dategenerater(),
         year:date.getFullYear(),
-        type:"cerbit"
+        type:"credit"
     })
 
     res.redirect("/home");

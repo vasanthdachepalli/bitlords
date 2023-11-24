@@ -89,7 +89,7 @@ app.get("/auth/google/login",
 
   //didnot do any changes (main routers are here,each router for each page,and different apis
 app.use('/archives',require('./routes/archives'));
-  app.use('/market',require('./routes/market'));
+app.use('/market',require('./routes/market'));
 app.use("/targets",require("./routes/targets"))
 app.use("/notifications",require("./routes/notifications"));
 app.use("/membersDataFecher",require("./api/members_data"));
@@ -103,7 +103,24 @@ app.use("/api",require("./api/dailysingle"));
 app.use("/home",require('./routes/home'));
 app.use('/loginpage', require('./routes/user'));
 
+app.get("/profile",function(req,res){
+  const data = require('./models/userdata');
+  data.findOne({tag:req.user.username})
+  .then(doc =>{
+    res.render('profile',{
+      user:doc
+    })
+  })
+})
 
+app.get('/logout', (req, res) => {
+  req.logout(err => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
 //end of the main routers
 //app.use('loginpage/login',require('./routes/user'));
 app.get("/register", function(req, res){
@@ -118,4 +135,4 @@ app.get("/",function(req,res){
 app.use("/visualizer",require('./routes/visualizer'))
 app.listen(3000, function() {
     console.log("Server started on port 3000.");
-  });
+});

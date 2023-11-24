@@ -41,6 +41,7 @@ p {
     color: #fff;
     text-shadow: 10px 10px 18px rgba(0, 0, 0, 0.9);
 }
+  
 #table-of-today-Transactions {
     width: 100%;
     border-collapse: collapse;
@@ -67,4 +68,26 @@ p {
 #table-of-today-Transactions td {
     /* If you want to set a specific width for data cells */
     width: 20%; /* Adjust the width for the data cell */
+}
+/* Style the container div */
+#submit-button {
+    text-align: center; /* Centers the button horizontally */
+    margin-top: 20px; /* Adds space above the button */
+}
+
+/* Style the button */
+#submit-button button {
+    padding: 10px 20px; /* Adjust padding for height and width */
+    font-size: 16px; /* Adjust font size */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Button hover effect */
+#submit-button button:hover {
+    background-color: #0056b3; /* Darker color on hover */
 }

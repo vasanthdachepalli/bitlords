@@ -3,6 +3,9 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 /* Assuming your nav bar has a fixed height, adjust the margin-top accordingly */

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/nav.css"> 
 <header>
     <div id="logo">
-        <a href="#">Bit Lords</a>
+        <a href="/home">Bit Lords</a>
     </div>
 
     <div class="nav-wrapper">
@@ -10,7 +10,7 @@
             <a href="/visualizer">Charts</a>
             <a href="/groups">Groups</a>
             <a href="/targets">Targets</a>
-            <a href="/market"> market</a>
+            <a href="/market">Market</a>
             <a href="/archives">Archives</a>
             <div class="notification-wrapper">
                 <a href="/notifications" class="notification">Notifications</a>
@@ -19,11 +19,16 @@
             
         </nav>
 
-        <div class="friend-logo">
-            <a href="/friend">
-                <img src="/images/add friend.png" alt="Friend's Logo">
-            </a>
-        </div>
+        <div class="navbar friend-logo">
+            <div class="dropdown">
+              <button class="dropbtn"><img src="/images/add friend.png" alt="Friend's Logo"></button>
+              <div class="dropdown-content">
+                <a href="/profile">Profile</a>
+                <a href="/friend">Friends</a>
+                <a href="/logout">Logout</a>
+              </div>
+            </div>
+          </div>
     </div>
 </header>
 <script>

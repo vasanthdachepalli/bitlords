@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
     <link rel="stylesheet" href="/css/archives.css">
+
 </head>
 <body>
     <%- include('partials/nav.ejs') %>
@@ -23,7 +24,7 @@
                     </div>
                     <div class="strip-right">
                         <button class="button" onclick="generatedaily()" type="button">Fetch</button>
-                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                        <button class="button" onclick="downloadTable()" type="button">Download</button>
                     </div>
                 </div>
                 <!-- Day-specific table -->
@@ -46,7 +47,7 @@
                     </div>
                     <div class="strip-right">
                         <button class="button" onclick="generateweek()" type="button">Fetch</button>
-                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                        <button class="button" onclick="downloadTable1()" type="button">Download</button>
                     </div>
                 </div>
                 <!-- Week-specific table -->
@@ -70,7 +71,7 @@
                     </div>
                     <div class="strip-right">
                         <button class="button" onclick="generatemonth()" type="button">Fetch</button>
-                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                        <button class="button" onclick="downloadTable3()" type="button">Download</button>
                     </div>
                 </div>
                 <!-- Month-specific table -->
@@ -93,7 +94,7 @@
                     </div>
                     <div class="strip-right">
                         <button class="button" onclick="generateyear()" type="button">Fetch</button>
-                        <button class="button" onclick="fetchData('day')" type="button">Download</button>
+                        <button class="button" onclick="downloadTable4()" type="button">Download</button>
                     </div>
                 </div>
                 <!-- Year-specific table -->
@@ -103,11 +104,12 @@
             </div>
     
         </div>
-
+        <%- include('partials/foot.ejs') %>
         <script src="js/jsForarchives/generateDaily.js"></script>
         <script src="js/jsForarchives/generateWeek.js"></script>
         <script src="js/jsForarchives/generateMonth.js"></script>
         <script src="js/jsForarchives/generateYear.js"></script>
+        <script src="js/jsForarchives/download.js"></script>    
       
 </body>
 </html>

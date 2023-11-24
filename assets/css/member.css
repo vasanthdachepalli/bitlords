@@ -6,6 +6,9 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     padding-top: 60px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .container {
@@ -151,3 +154,8 @@ button.equal:hover {
 .memberName{
     display: none;
 }
+.add-member{
+    margin-left: 10%;
+    margin-top: 15%;
+   position: relative;
+  }

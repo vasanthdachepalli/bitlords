@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+</head>
+<body>
+    <%- include('partials/nav.ejs') %>
+
+    <section>
+        <div class="user-profile-box">
+            <h1 class="user-profile-heading">User Profile</h1>
+        </div>
+    
+        <div class="user-details">
+            <h1><%= user.display_Name %></h1>
+            <ul>
+                <li>Email: <%= user.email %></li>
+                <li>Gender: <%= user.gender %></li>
+                <li>Phone: <%= user.phoneNumber %></li>
+                <li>Salary: <%= user.salary %></li>
+                <li>Balance: <%= user.balance %></li>
+            </ul>
+        </div>
+    </section>
+        
+    
+    <%- include('partials/foot.ejs') %>
+    <script src="js/darkmode.js"></script>
+</body>
+</html>

@@ -79,3 +79,10 @@ button:hover {
 #myPieChart_daily {
   height: 20%;
 }
+.card-header-center {
+    padding: 0; /* Set padding to zero */
+}
+
+.card-header-center h1 {
+    margin: 0; /* Reset margin to ensure no additional space */
+}

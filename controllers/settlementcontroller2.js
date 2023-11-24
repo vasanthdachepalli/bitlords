@@ -63,11 +63,11 @@ module.exports = async function(req,res,next){
     transdaily.create({
         tag:req.user.username,
         ammount:amount1,
-        category:"cerbited amm",
+        category:"credited amm",
         name:"settlements",
         date: dategenerater(),
         monthnumber:date.getMonth(),
-        type:"crebit"
+        type:"credit"
     })
     //const weekly = require('../models/transWeekly');
     //const monthly = require('../models/transMonthly');
@@ -77,32 +77,32 @@ module.exports = async function(req,res,next){
     weekly.create({
         tag:req.user.username,
         ammount:amount1,
-        category:"cerbited amms",
+        category:"ed amms",
         name:"settlements",
         date: dategenerater(),
         month:date.getMonth(),
         startingDate:weekdate.monday,
         endingDate:weekdate.sunday,
-        type:"crebit"
+        type:"credit"
     })
     monthly.create({
         tag:req.user.username,
         ammount:amount1,
-        category: "cerbited amms",
+        category: "credited amms",
         name:"settlements",
         date: dategenerater(),
         month:require('../jshelpers/monthnamegenereater')(date.getMonth()),
         year:date.getFullYear(),
-        type:"crebit"
+        type:"credit"
     })
     yearly.create({
         tag:req.user.username,
         ammount:amount1,
-        category:"cerbitsss ",
+        category:"creditsss ",
         name:"settlements",
         date: dategenerater(),
         year:date.getFullYear(),
-        type:"cerbit"
+        type:"credit"
     })
 
 

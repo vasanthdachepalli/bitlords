@@ -62,7 +62,8 @@
                     <td> <%= i.friend %> </td>
                     <td class="given"><%= i.amount_given %> </td>
                     <td class="taken"><%= i.amount_taken  %> </td>
-                    <td><form action="/member/addRemainder1?tag=<%=i.friend_tag%>&groupname=<%=group.Groupname%>" method="post"><button class="action">Settle</button></form> <form action="/member/addRemainder?tag=<%=i.friend_tag%>&groupname=<%=group.Groupname%>" method="post"><button type="submit"  class="action1 ">Remainder</button></form><button class="equal">✅</button></td>
+                    <td><form action="/member/addRemainder1?tag=<%=i.friend_tag%>&groupname=<%=group.Groupname%>" method="post"><button class="action">Settle</button></form> <form action="/member/addRemainder?tag=<%=i.friend_tag%>&groupname=<%=group.Groupname%>" method="post"><button type="submit"  class="action1 ">Remainder</button></form><button class="equal">✅</button>
+                    <button class="action2">InsuffienctBalance</button></td>
                 </tr>
 
                 <% }) %>

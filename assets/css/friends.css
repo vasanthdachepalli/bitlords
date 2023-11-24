@@ -5,8 +5,6 @@ body {
 }
 
 
-
-
 .first-card {
     padding-top: 20%;
     padding: 2%;
@@ -111,4 +109,33 @@ button {
 
 button:hover {
     background-color: #2980b9;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.accept-btn, .reject-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.accept-btn {
+    background-color: green;
+    color: white;
+}
+
+.reject-btn {
+    background-color: red;
+    color: white;
 }

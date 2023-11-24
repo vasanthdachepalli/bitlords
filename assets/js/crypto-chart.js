@@ -60,12 +60,11 @@
     }
 
     window.addEventListener('resize', () => {
-        // Update chart width on window resize
+       
         if (chart !== null) {
             chart.resize(chartContainer.clientWidth, 550);
         }
     });
 
-    // Initial load of the chart
-    // Initial coin to load, change as needed
+    
 }
