@@ -1,24 +1,18 @@
-const transtion_daily = require('../models/transctiondaily');
-const catogerywisedaily =require('../models/catoregywisedaily');
-const date = require('../api/dategenerater');
-
-module.exports = function(req,res,next){
+module.exports =async function(req,res,next){
     let dat1 = new Date();
-    let month = require('../jshelpers/monthnamegenereater');
-transtion_daily.deleteMany({monthnumber:{$ne :dat1.getMonth()}})
-.then(()=>{
-    console.log('');
-})
-.catch((err)=>{
+   const userdata = require('../models/userdata');
+   const data = require('../models/user_savings');
+   
+    userdata.find({monthnumber:dat1.getMonth()})
+    .then(async doc =>{
+        doc.forEach(async element => {
+            await data.findOneAndUpdate({tag:element.tag},{$inc:{saving:element.balance}});
+            await userdata.findOneAndUpdate({tag:element.tag},{balance:doc.salary});
+        });
+    })
+   .catch(err =>{
     console.log(err);
-})
-
-catogerywisedaily.deleteMany({monthnumber:{$ne : dat1.getMonth()}})
-.then(()=>{
-    console.log('');
-})
-.catch((err)=>{
-    console.log(err);
-})
+   })
+   
 next()
 }

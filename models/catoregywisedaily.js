@@ -11,6 +11,6 @@ const catoregywisedaikyschema = new mongoose.Schema({
     total:Number,
     created_at: { type: Date, default: Date.now },
 })
-catoregywisedaikyschema.index({ created_at: 1 }, { expireAfterSeconds:  28 * 24 * 60 * 60 });
+catoregywisedaikyschema.index({ created_at: 1 }, { expireAfterSeconds:  30 * 24 * 60 * 60 });
 const model = new mongoose.model('catogerywisedaily',catoregywisedaikyschema);
 module.exports = model;

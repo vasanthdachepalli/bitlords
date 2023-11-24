@@ -1,7 +1,7 @@
 const express = require('express');
 const stocks = require('../models/userstocks');
 const company = require('../models/usercompany');
-const Router = new express.Router();
+const Router =  express.Router();
 Router.get('/',async function(req,res){
    let doc = await stocks.find({tag:req.user.username});
    let doc1 = await company.find({tag:req.user.username});
