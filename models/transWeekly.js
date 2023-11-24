@@ -8,7 +8,9 @@ const transction = new mongoose.Schema({
     month:Number,
     startingDate:String,
     endingDate:String,
-    type:String
+    type:String,
+    created_at: { type: Date, default: Date.now },
 });
+transction.index({ created_at: 1 }, { expireAfterSeconds:  150 * 24 * 60 * 60 });
 const model = new mongoose.model("transtion_weekly",transction);
 module.exports = model;

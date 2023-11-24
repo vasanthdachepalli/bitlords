@@ -6,7 +6,10 @@ const transction = new mongoose.Schema({
     date:String,
     category:String,
     monthnumber:Number,
-    type:String
+    type:String,
+    created_at: { type: Date, default: Date.now },
 });
+
+transction.index({ created_at: 1 }, { expireAfterSeconds: 28 * 24 * 60 * 60 });
 const model = new mongoose.model("transtion_daily",transction);
 module.exports = model;

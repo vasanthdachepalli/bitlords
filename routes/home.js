@@ -4,7 +4,7 @@ const Router = express.Router();
 const transtiondata = require('../models/transctiondaily');
 const salarydata = require('../models/userdata');
 const dategenerater = require('../api/dategenerater');
-Router.get("/",require('../controllers/deleter'),require('../controllers/healperForhomePage'),function(req,res){
+Router.get("/",require('../controllers/healperForhomePage'),function(req,res){
 
 
 salarydata.findOne({tag: { $eq:req.user.username }})
