@@ -1,1 +1,7 @@
-C
+initilaise your npm install ,
+create .env file,
+CLIENT_ID and CLIENT_SECRET ==> google API and password and username,
+create your CRYPTO COMPARE API key with CRYPTO_API_KEY,
+create your ALPHA VINTAGE API key with STOCK_API_KEY.
+mongoose atlas PASSWORD
+For salting create SECRET.
