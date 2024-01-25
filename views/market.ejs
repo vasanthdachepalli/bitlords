@@ -32,9 +32,11 @@
                         <input type="text" id="crypto-name" placeholder="Search cryptocurrencies...">
                         <button onclick="searchCrypto()">Get Symbol</button>
                         <p id="crypto-symbol-result"></p>
-                        <label for="coin-name">Enter Stock Symbol:</label>
-                        <input type="text" id="crypto-search-1" list="crypto-options-1" placeholder="Search cryptocurrencies...">
-                           <button >Add to watch list</button>
+                        <form action="market/addCrypto" method="post">
+                        <label for="coin-name">Enter Stock Symbol:</label>                      
+                        <input type="text" id="crypto-search-1" list="crypto-options-1" name="crypto" placeholder="Search cryptocurrencies...">
+                           <button type="submit" >Add to watch list</button>
+                        </form>
                     </div>
                     <div id="crypto-results">
                         <!-- Results will be displayed here -->
@@ -47,7 +49,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="header-left">
-                        <label for="date">Add a New Crypto</label>
+                        <label for="date">Add a New Stock</label>
                     </div>
                 </div>
                 
@@ -57,9 +59,13 @@
                         <input type="text" id="companyName" placeholder="Enter company name">
                          <button onclick="fetchSymbol()">Get Symbol</button>
                          <p id="symbolResult"></p>
-                        <label for="coin-name">Enter Stock Symbol:</label>
-                        <input type="text" id="crypto-search-1" list="crypto-options-1" placeholder="Search cryptocurrencies...">
-                           <button >Add to watch list</button>
+
+                         <form action="market/addStock" method="post">
+                        <label for="coin-name">Enter Stock Symbol:</label>  
+                        <input type="text" id="crypto-search-1" name="stock" list="crypto-options-1" placeholder="Search cryptocurrencies...">
+
+                           <button type="submit" >Add to watch list</button>
+                           </form>
                     </div>
                     <div id="crypto-results">
                         <!-- Results will be displayed here -->
@@ -79,10 +85,11 @@
                 
                 <div class="card-body">
                     <ul>
-                        <li onclick="handleItemCryptoClick(this)">BTC</li>
+                        <% stock.forEach((i) =>{  %>
+                        <li onclick="handleItemCryptoClick(this)"><%= i.stock %></li>
                     
-                    <li onclick="handleItemCryptoClick(this)">DOGE</li>
-                    <li onclick="handleItemCryptoClick(this)">TRX</li>
+                   
+                    <% }) %>
                     
                     </ul>
                     
@@ -98,9 +105,12 @@
                 
                 <div class="card-body">
                     <ul>
-                    <li onclick="handleItemStockClick(this)">INFY</li>
-                    <li onclick="handleItemStockClick(this)">IBM</li>
-                    <li onclick="handleItemStockClick(this)">RELIANCE.BSE</li>
+
+                        <% company.forEach((i)=>{ %>
+                    <li onclick="handleItemStockClick(this)"><%= i.company %></li>
+                    <% }) %>
+                   
+                  
                     
                     </ul>
                 </div>

@@ -8,7 +8,10 @@ const catogerywisemonthly_Schema = new mongoose.Schema({
     others:Number,
     total:Number,
     month:String,
-    year:Number
+    year:Number,
+    created_at: { type: Date, default: Date.now }
+
 });
+catogerywisemonthly_Schema.index({ created_at: 1 }, { expireAfterSeconds:  365 * 24 * 60 * 60 });
 const model = new mongoose.model('categeryWiseMonthlyRecord',catogerywisemonthly_Schema);
 module.exports = model;

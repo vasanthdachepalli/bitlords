@@ -1,10 +1,14 @@
 
+fetch('/archives/data/data1')
+.then(response => response.json())
+.then(data =>{
 
 const given = document.getElementsByClassName("given");
 const taken = document.getElementsByClassName("taken");
 const button1 = document.getElementsByClassName("action");
 const button2 = document.getElementsByClassName("action1");
 const button3 = document.getElementsByClassName("equal");
+const button4 = document.getElementsByClassName('action2')
 
 for (let i = 0; i < given.length; i++) {
     let a = parseInt(given[i].innerHTML);
@@ -13,15 +17,27 @@ for (let i = 0; i < given.length; i++) {
     if (a < b) {
         button2[i].style.display = "none"; // Hide action1 button
         button3[i].style.display = "none";
+        button4[i].style.display ="none";
 
     } else if (a > b) {
         button1[i].style.display = "none"; // Hide action1 button
         button3[i].style.display = "none";
+
+        if((a - b) < data[0].balance){
+            button2[i].style.display ="none";
+        }else{
+            button4[i].style.display ="none";
+        }
+
     } else {
         button2[i].style.display = "none";
         button1[i].style.display = "none";
+        button4[i].style.display ="none";
     }
 }
+
+})
+
 function remove(){
     document.getElementsByClassName("SButton")[0].style.display = "none";
 }
@@ -49,9 +65,30 @@ function splitter() {
     checker();
 }
 function checker() {
-    let amount = parseFloat(document.getElementsByClassName("totalAmount")[0].value);
+    fetch('/archives/data/data1')
+    .then(response => response.json())
+.then(data =>{
+    console.log(data[0].balance);
+    let amount = parseInt(document.getElementsByClassName("totalAmount")[0].value);
+
+    if(amount < 0)
+    document.getElementsByClassName("totalAmount")[0].value = 0;
+
+    if( amount > parseInt(data[0].balance)){
+        document.getElementsByClassName("totalAmount")[0].value = 0;
+    }
+    
+    if(amount > (data[0].balance - data[0].saving)){
+        alert('if you proced with this transtion you will not acheive monthly savings account ')
+    }
+
     let members = document.getElementsByClassName("money");
     let check = 0;
+    for(let i = 0;i < members.length; i++){
+        if(members[i].value < 0)
+        members[i].value = 0;
+    }
+
     for(let i = 0;i < members.length; i++){
         check += parseFloat(members[i].value);
     }
@@ -61,4 +98,5 @@ function checker() {
     else{
         document.getElementsByClassName("SButton")[1].style.display = "none";
     }
+})
 }
