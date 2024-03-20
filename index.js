@@ -54,7 +54,7 @@ app.use(session({
   passport.use(new GoogleStrategy({
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/login",
+      callbackURL: "https://bitlords.onrender.com/auth/google/login",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
     },
     function(accessToken, refreshToken, profile, cb) {
@@ -116,6 +116,7 @@ app.get("/",function(req,res){
     res.render("signin");
 })
 app.use("/visualizer",require('./routes/visualizer'))
-app.listen(3000, function() {
-    console.log("Server started on port 3000.");
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+    console.log("Server started on port "+port);
   });
